@@ -1,0 +1,64 @@
+body {
+    background-color: #130701;
+  }
+  
+  .picture {
+    width: 300px;
+    height: 300px;
+  }
+  
+  button {
+    background-color: #53dddf;
+  }
+  
+  input,
+  textarea {
+    outline: none;
+    background-color: transparent;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+      rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    border-style: none;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-div {
+    background-color: #33658a;
+  }
+  footer {
+    background-color:#33658A;
+}
+a{
+    text-decoration: none!important;
+}
+  @media only screen and (max-width: 770px) {
+      .picture {
+        width: 200px;
+        height: 200px;
+      }
+    }
+  
+  @media only screen and (max-width: 700px) {
+    .picture {
+      width: 200px;
+      height: 200px;
+    }
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .picture {
+      width: 150px;
+      height: 150px;
+    }
+  }
+  
+  @media only screen and (max-width: 400px) {
+    .picture {
+      width: 100px;
+      height: 100px;
+    }
+  }
+  

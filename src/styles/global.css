@@ -7,7 +7,7 @@
 }
 
 body{
-    background-color: #130701;
+    background-color: #000000;
     font-family: 'Poppins', sans-serif;
 }
 
@@ -17,7 +17,7 @@ body{
     border-radius: 5px;
     font-weight: bold;
     transition: 0.4s;
-    font-size: 0.8rem;
+    font-size: 1.3rem;
     white-space: nowrap;
 }
 
@@ -26,8 +26,7 @@ body{
     object-fit: fill;
 }
 
-.logo{
-}
+
 .list > ul > li > a:hover, .cart:hover{
     background-color: #53DDDF !important; 
 }
@@ -49,7 +48,6 @@ nav{
     width: 45px;
     transition: 0.4s;
 }
-
 .cart:hover{
     background-color: #53DDDF !important;
 }
@@ -58,11 +56,94 @@ nav{
 }
 
 .modal-content{
-    top: 0;
-    right: 0;
-    position: absolute;
     height: 100vh;
     z-index: 999;
     width: 400px;
-    background-color: rgb(210, 210, 210);
+    background-color: white;
+    transform: translateX(100%);
 }
+
+.modal-dialog{
+    margin: 0;
+    top: 0;
+    right: 0;
+    position: absolute;
+    animation: fadeIn 0.2s ease-in forwards;
+}
+
+@keyframes fadeIn {
+    0%{
+        transform: translateX(0%);
+    }
+    100%{
+        transform: translateX(-100%);
+    }
+}
+
+.modalButton, .modalButtonClose{
+    background-color: white;
+    border: none;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 7px;
+    transition: 0.4s;
+}
+
+.modalButton:hover{
+    background-color: #53DDDF;
+    scale: 1.1;
+    filter: drop-shadow(-2px 4px 5px #00000088);
+}
+
+.modalButtonClose:hover{
+    background-color: #000000;
+    color: white;
+    scale: 1.1;
+    filter: drop-shadow(-2px 4px 5px #00000088);
+}
+
+.closeButton{
+    transition: 0.4s;
+}
+.closeButton:hover{
+    background-color: rgb(192, 192, 192);
+}
+
+.cartProduct{
+    background-color: #000000;
+    padding: 10px;
+    color: white;
+    border-radius: 10px;
+    padding-left: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    .list > ul > li > a{
+        font-size: 1rem !important;
+
+    }
+
+    .list > ul{
+        flex-wrap: wrap;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .list > ul > li > a{
+        font-size: 0.7rem !important;
+
+    }
+
+    .list > ul{
+        flex-wrap: wrap;
+    }
+
+    nav{
+        padding-inline: 0px !important;
+    }
+
+    .modal-content{
+        width: 290px !important;
+    }
+}
+
