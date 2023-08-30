@@ -1,10 +1,10 @@
 const db = require('../config/index');
 
-class Cart {
-    fetchItems(req, res) {
+class Orders {
+    fetchOrders(req, res) {
         const query = `
-        SELECT cartID, prodID, userID,
-        FROM cart;
+        SELECT orderID, cartID, orderDate,
+        FROM orders;
         `
         db.query(query, (err, results) => {
             if (err) {
@@ -17,10 +17,10 @@ class Cart {
         });
     };
 
-    fetchItem(req, res) {
-        const query = `
-        SELECT cartID, prodID, userID,
-        FROM cart;
+    fetchOrder(req, res) {
+        const query =` 
+        SELECT orderID, cartID, orderDate,
+        FROM orders;
         `
         db.query(query, (err, result) => {
             if (err) {
@@ -33,48 +33,48 @@ class Cart {
         });
     };
 
-    addItem(req, res) {
-        const query = `
-        INSERT INTO cart
+    addOrder(req, res) {
+        const query =`
+        INSERT INTO orders
         SET ?;
         `
         db.query(query, [req.body], (err) => {
             if (err) {
-                res.status(400).json({err: 'Could not add Item'});
+                res.status(400).json({err: 'Could not add order'});
             } else {
-                res.status(200).json({msg: 'Item added to Cart'});
+                res.status(200).json({msg: 'Order added'});
             }
         });
     };
 
-    updateItem(req, res) {
+    updateOrder(req, res) {
         const query =`
-        UPDATE cart
+        UPDATE orders
         SET ?
-        WHERE cartID = ?;
+        WHERE orderID = ?;
         `
         db.query(query, [req.body, req.params.id], (err) => {
             if (err) {
-                res.status(400).json({err: 'Could not update Cart'});
+                res.status(400).json({err: 'Could not update Orders'});
             } else {
-                res.status(200).json({msg: 'Cart updated'});
+                res.status(200).json({msg: 'Oreders updated'});
             }
         });
     };
 
-    deleteItem(req, res) {
-        const query = `
-        DELETE FROM cart
-        WHERE cart = ${ req.params.id };
+    deleteOrder(req, res) {
+        const query =`
+        DELETE FROM orders
+        WHERE orders = ${ req.params.id }; 
         `
         db.query(query, [req.params.id], (err) => {
             if (err) {
-                res.status(400).json({err: 'Item not found'});
+                res.status(400).json({err: 'Order not found'});
             } else {
-                res.status(200).json({msg: 'Item deleted from Cart'});
+                res.status(200).json({msg: 'Order deleted'});
             }
         });
     };
 };
 
-module.exports = Cart;
+module.exports = Orders;
