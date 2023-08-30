@@ -4,7 +4,9 @@ const path = require('path');
 const app = express();
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
-const userRoutes = require('./controller/usersCont')
+
+const userRoutes = require('./controller/usersCont');
+const prodRoutes = require('./controller/productsCont');
 
 const port = process.env.PORT || 8000
 
@@ -18,6 +20,8 @@ app.use(
 );
 
 app.use('/user', userRoutes);
+app.use('/product', prodRoutes)
+
 
 userRoutes.get('^/$|/Capstone', (req, res) => {
     res.sendfile(path.resolve(__dirname, './static/html/index.html'));
