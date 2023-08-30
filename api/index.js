@@ -8,8 +8,11 @@ const cookieParser = require('cookie-parser');
 const userRoutes = require('./controller/usersCont');
 const prodRoutes = require('./controller/productsCont');
 const cartRoutes = require('./controller/cartCont');
+const catRoutes = require('./controller/categoriesCont');
 
 const port = process.env.PORT || 8000
+
+app.use(express.static('./static'));
 
 app.use(express.urlencoded({extended:  false}));
 
@@ -23,6 +26,7 @@ app.use(
 app.use('/user', userRoutes);
 app.use('/product', prodRoutes);
 app.use('/item', cartRoutes);
+app.use('/category', catRoutes);
 
 
 userRoutes.get('^/$|/Capstone', (req, res) => {
