@@ -9,7 +9,8 @@ const userRoutes = require('./controller/usersCont');
 const prodRoutes = require('./controller/productsCont');
 const cartRoutes = require('./controller/cartCont');
 const catRoutes = require('./controller/categoriesCont');
-const orderRoutes = require('./controller/ordersCont')
+const orderRoutes = require('./controller/ordersCont');
+const payRoutes = require('./controller/paymentCont')
 
 const port = process.env.PORT || 8000
 
@@ -29,6 +30,7 @@ app.use('/product', prodRoutes);
 app.use('/item', cartRoutes);
 app.use('/category', catRoutes);
 app.use('/order', orderRoutes);
+app.use('/payment', payRoutes);
 
 
 userRoutes.get('^/$|/Capstone', (req, res) => {
