@@ -2,8 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const catRoutes = express.Router();
 
-const Categories = require('../model/categories');
-const category = new Categories();
+const {category} = require('../model/index')
 
 catRoutes.get('/Categories', (req, res) => {
     category.fetchCategories(req, res);

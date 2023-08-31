@@ -2,8 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const supplierRoutes = express.Router();
 
-const Suppliers = require('../model/suppliers');
-const supplier = new Suppliers();
+const {supplier} = require('../model/index')
 
 supplierRoutes.get('/items', (req, res) => {
     supplier.fetchSuppliers(req, res);

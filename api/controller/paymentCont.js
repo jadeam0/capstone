@@ -2,8 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const payRoutes = express.Router();
 
-const Payments = require('../model/payment');
-const payment = new Payments();
+const {payment} = require('../model/index')
 
 payRoutes.get('/payments', (req, res) => {
     payment.fetchPayments(req, res);
