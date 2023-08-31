@@ -2,8 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cartRoutes = express.Router();
 
-const Cart = require('../model/cart');
-const cart = new Cart();
+const {cart} = require('../model/index')
 
 cartRoutes.get('/items', (req, res) => {
     cart.fetchItems(req, res);

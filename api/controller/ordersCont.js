@@ -2,8 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const orderRoutes = express.Router();
 
-const Orders = require('../model/orders');
-const order = new Orders();
+const {order} = require('../model/index')
 
 orderRoutes.get('/orders', (req, res) => {
     order.fetchOrders(req, res);
