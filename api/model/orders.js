@@ -3,38 +3,23 @@ const db = require('../config/index');
 class Orders {
     fetchOrders(req, res) {
         const query = `
-        SELECT orderID, cartID, orderDate,
-        FROM orders;
+        Select users.*, products.*
+        FROM orders
+        INNER JOIN products ON orders.prodID = products.prodID
+        INNER JOIN users ON orders.userID = users.userID
+        WHERE orders.userID = ${req.params.id};
         `
         db.query(query, (err, results) => {
-            if (err) {
-                console.log(err);
-            }
-            res.json({
+            if (err) throw err;
+            res.status(200).json({
                 status: res.statusCode,
                 results
             });
         });
     };
 
-    fetchOrder(req, res) {
-        const query =` 
-        SELECT orderID, cartID, orderDate,
-        FROM orders;
-        `
-        db.query(query, (err, result) => {
-            if (err) {
-                console.log(err);
-            }
-            res.json({
-                status: res.statusCode,
-                result
-            });
-        });
-    };
-
     addOrder(req, res) {
-        const query =`
+        const query = `
         INSERT INTO orders
         SET ?;
         `
@@ -44,7 +29,7 @@ class Orders {
             } else {
                 res.status(200).json({msg: 'Order added'});
             }
-        });
+        })
     };
 
     updateOrder(req, res) {
@@ -66,6 +51,20 @@ class Orders {
         const query =`
         DELETE FROM orders
         WHERE orders = ${ req.params.id }; 
+        `
+        db.query(query, [req.body, req.params.id], (err) => {
+            if (err) {
+                res.status(400).json({err: 'Order not found'});
+            } else {
+                res.status(200).json({msg: 'Order deleted'});
+            }
+        });
+    };
+
+    deleteAllOrders(req, res) {
+        const query =`
+        DELETE FROM orders
+        WHERE orders = ?; 
         `
         db.query(query, [req.params.id], (err) => {
             if (err) {

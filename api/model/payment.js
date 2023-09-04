@@ -3,14 +3,14 @@ const db = require('../config/index');
 class Payments {
     fetchPayments(req, res) {
         const query =`
-        SELECT payID, orderID, payDate,
-        FROM payments;
+        SELECT orders.*, suppliers.*
+        FROM payment
+        LEFT JOIN orders ON payment.orderID = orders.orderID
+        RIGHT JOIN suppliers ON payment.suppID = suppliers.suppID;
         `
         db.query(query, (err, results) => {
-            if (err) {
-                console.log(err);
-            }
-            res.json({
+            if (err) throw err;
+            res.status(200).json({
                 status: res.statusCode,
                 results
             });
@@ -19,8 +19,8 @@ class Payments {
 
     fetchPayment(req, res) {
         const query = `
-        SELECT payID, orderID, payDate,
-        FROM payments;
+        SELECT *
+        FROM payment;
         `
         db.query(query, (err, result) => {
             if (err) {
@@ -35,7 +35,7 @@ class Payments {
 
     addPayment(req, res) {
         const query = `
-        INSERT INTO payments
+        INSERT INTO payment
         SET ?;
         `
         db.query(query,[req.body], (err) => {
@@ -49,7 +49,7 @@ class Payments {
 
     updatePayment(req, res) {
         const query =`
-        UPDATE payments
+        UPDATE payment
         SET ?
         WHERE payID = ?;
         `
@@ -64,14 +64,28 @@ class Payments {
 
     deleteItem(req, res) {
         const query = `
-        DELETE FROM payments
-        WHERE payments = ${ req.params.id };
+        DELETE FROM payment
+        WHERE payment = ${ req.params.id };
         `
-        db.query(query, [req.params.id], (err) => {
+        db.query(query, [req.body, req.params.id], (err) => {
             if (err) {
                 res.status(400).json({err: 'Payment not found'});
             } else {
                 res.status(200).json({msg: 'Payment deleted'});
+            }
+        });
+    };
+
+    deleteAllItems(req, res) {
+        const query = `
+        DELETE FROM payment
+        WHERE payment = ?;
+        `
+        db.query(query, [req.params.id], (err) => {
+            if (err) {
+                res.status(400).json({err: 'Payments not found'});
+            } else {
+                res.status(200).json({msg: 'Payments deleted'});
             }
         });
     };

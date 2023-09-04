@@ -24,4 +24,8 @@ payRoutes.delete('/payment/:id', (req, res) => {
     payment.deleteItem(req, res);
 });
 
+payRoutes.delete('/payment/:id', (req, res) => {
+    payment.deleteAllItems(req, res);
+});
+
 module.exports = payRoutes;
