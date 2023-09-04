@@ -10,7 +10,6 @@ const bodyParser = require("body-parser");
 
 const userRoutes = require("./controller/usersCont");
 const prodRoutes = require("./controller/productsCont");
-const cartRoutes = require("./controller/cartCont");
 const catRoutes = require("./controller/categoriesCont");
 const orderRoutes = require("./controller/ordersCont");
 const payRoutes = require("./controller/paymentCont");
@@ -36,7 +35,6 @@ app.get("^/$|/Capstone", (req, res) => {
 
 app.use("/user", userRoutes);
 app.use("/product", prodRoutes);
-app.use("/item", cartRoutes);
 app.use("/category", catRoutes);
 app.use("/order", orderRoutes);
 app.use("/payment", payRoutes);

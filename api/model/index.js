@@ -4,7 +4,7 @@ const Suppliers = require('./suppliers');
 const Payments = require('./payment');
 const Orders = require('./orders');
 const Categories = require('./categories');
-const Cart = require('./cart');
+
 
 
 module.exports = {
@@ -14,6 +14,6 @@ module.exports = {
     payment: new Payments(),
     order: new Orders(),
     category: new Categories(),
-    cart: new Cart()
+
 
 }
