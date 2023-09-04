@@ -4,7 +4,6 @@ const supplierRoutes = require('./suppliersCont')
 const payRoutes = require('./paymentCont')
 const orderRoutes = require('./ordersCont')
 const catRoutes = require('./categoriesCont')
-const cartRoutes = require('./cartCont')
 
 module.exports = {
     userRoutes,
@@ -12,6 +11,5 @@ module.exports = {
     supplierRoutes,
     payRoutes,
     orderRoutes,
-    catRoutes,
-    cartRoutes 
+    catRoutes
 }
