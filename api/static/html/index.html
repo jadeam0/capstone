@@ -3,9 +3,260 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-Com</title>
+    <title>CraveFusion</title>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-    
+    <div>
+        <h1>USERS</h1>
+    </div>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Http Methods</th>
+                    <th>Path</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>POST</td>
+                    <td>/login</td>
+                    <td>User login.</td>
+                </tr>
+                <tr>
+                    <td>GET</td>
+                    <td>/user/users</td>
+                    <td>Display a list of users.</td>
+                </tr>
+                <tr>
+                    <td>GET</td>
+                    <td>/user/user/:id</td>
+                    <td>Display a single user.</td>
+                </tr>
+                <tr>
+                    <td>PUT</td>
+                    <td>/user/user/:id</td>
+                    <td>Update user's record.</td>
+                </tr>
+                <tr>
+                    <td>PATCH</td>
+                    <td>/user/user/:id</td>
+                    <td>To modify a user's record.</td>
+                </tr>
+                <tr>
+                    <td>POST</td>
+                    <td>/user/register</td>
+                    <td>To register a new user.</td>
+                </tr>
+                <tr>
+                    <td>DELETE</td>
+                    <td>/user/user/:id</td>
+                    <td>To delete a single user.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div>
+        <h1>PRODUCTS</h1>
+    </div>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Http Methods</th>
+                    <th>Path</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>GET</td>
+                    <td>/product/products</td>
+                    <td>Display all products.</td>
+                </tr>
+                <tr>
+                    <td>GET</td>
+                    <td>/product/product/:id</td>
+                    <td>Display a single product by ID.</td>
+                </tr>
+                <tr>
+                    <td>PUT</td>
+                    <td>/product/product/:id</td>
+                    <td>To update a product info.</td>
+                </tr>
+                <tr>
+                    <td>POST</td>
+                    <td>/product/addProduct</td>
+                    <td>To add a new product.</td>
+                </tr>
+                <tr>
+                    <td>DELETE</td>
+                    <td>/product/product/:id</td>
+                    <td>To delete a product.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div>
+        <h1>CATEGORIES</h1>
+    </div>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Http Methods</th>
+                    <th>Path</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>GET</td>
+                    <td>/category/categories</td>
+                    <td>Display a list of all categories.</td>
+                </tr>
+                <tr>
+                    <td>POST</td>
+                    <td>/category/addCategory</td>
+                    <td>To add a new category.</td>
+                </tr>
+                <tr>
+                    <td>DELETE</td>
+                    <td>/category/category/:id</td>
+                    <td>To delete a category.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div>
+        <h1>SUPPLIERS</h1>
+    </div>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Http Methods</th>
+                    <th>Path</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>GET</td>
+                    <td>/supplier/suppliers</td>
+                    <td>Display a list of suppliers.</td>
+                </tr>
+                <tr>
+                    <td>GET</td>
+                    <td>/supplier/supplier/:id</td>
+                    <td>Display a single supplier.</td>
+                </tr>
+                <tr>
+                    <td>PUT</td>
+                    <td>/supplier/supplier/:id</td>
+                    <td>Update supplier record.</td>
+                </tr>
+                <tr>
+                    <td>POST</td>
+                    <td>/supplier/addSupplier</td>
+                    <td>To add a new supplier.</td>
+                </tr>
+                <tr>
+                    <td>DELETE</td>
+                    <td>/supplier/supplier/:id</td>
+                    <td>To delete a supplier.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div>
+        <h1>ORDERS</h1>
+    </div>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Http Methods</th>
+                    <th>Path</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>GET</td>
+                    <td>/user/:id/orders</td>
+                    <td>Display all users orders.</td>
+                </tr>
+                <tr>
+                    <td>PUT</td>
+                    <td>/user/:id/order/:id</td>
+                    <td>Update users orders.</td>
+                </tr>
+                <tr>
+                    <td>POST</td>
+                    <td>/user/:id/order</td>
+                    <td>To add a new order to users account.</td>
+                </tr>
+                <tr>
+                    <td>DELETE</td>
+                    <td>/user/:id/order</td>
+                    <td>To delete all orders from user account.</td>
+                </tr>
+                <tr>
+                    <td>DELETE</td>
+                    <td>/user/:id/order/:id</td>
+                    <td>To delete a single order from users acount.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div>
+        <h1>PAYMENT</h1>
+    </div>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Http Methods</th>
+                    <th>Path</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>GET</td>
+                    <td>/user/:id/payments</td>
+                    <td>Display all users orders made.</td>
+                </tr>
+                <tr>
+                    <td>PUT</td>
+                    <td>/user/:id/payment/:id</td>
+                    <td>Update users orders, history.</td>
+                </tr>
+                <tr>
+                    <td>POST</td>
+                    <td>/user/:id/payment</td>
+                    <td>To add a new completed payment to users account.</td>
+                </tr>
+                <tr>
+                    <td>DELETE</td>
+                    <td>/user/:id/payment</td>
+                    <td>To delete all history of payments from user account.</td>
+                </tr>
+                <tr>
+                    <td>DELETE</td>
+                    <td>/user/:id/payment/:id</td>
+                    <td>To delete a single order history from users acount.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>

@@ -17,22 +17,6 @@ class Categories {
         });
     };
 
-    fetchCategory(req, res) {
-        const query =`
-        SELECT catID, catName,
-        FROM cart;
-        `
-        db.query(query, (err, result) => {
-            if (err) {
-                console.log(err);
-            }
-            res.json({
-                status: res.statusCode,
-                result
-            });
-        });
-    };
-
     addCategory(req, res) {
         const query =`
         INSERT INTO cart
@@ -43,21 +27,6 @@ class Categories {
                 res.status(400).json({err: 'Could not add Category'});
             } else {
                 res.status(200).json({msg: 'Category added'});
-            }
-        });
-    };
-
-    updateCategory(req, res) {
-        const query =`
-        UPDATE categories
-        SET ?
-        WHERE catID = ?;
-        `
-        db.query(query, [req.body, req.params.id], (err) => {
-            if (err) {
-                res.status(400).json({err: 'Could not update Categories'});
-            } else {
-                res.status(200).json({msg: 'Category deleted'});
             }
         });
     };
