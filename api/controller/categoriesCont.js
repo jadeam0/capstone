@@ -8,16 +8,8 @@ catRoutes.get('/Categories', (req, res) => {
     category.fetchCategories(req, res);
 });
 
-catRoutes.get('/category/:id', (req, res) => {
-    category.fetchCategory(req, res);
-});
-
 catRoutes.post('/addCategory', bodyParser.json(), (req, res) => {
     category.addCategory(req, res);
-});
-
-catRoutes.put('/category/:id', (req, res) => {
-    category.updateCategory(req, res);
 });
 
 catRoutes.delete('/category/:id', (req, res) => {
