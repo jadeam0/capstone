@@ -1,0 +1,125 @@
+<template>
+    <div class="header">
+          <div class="sub1">
+            <img src="https://i.postimg.cc/MKr8bZpZ/Free-Sample-By-Wix.jpg" alt="" class="logo">
+          </div>
+          <div class="sub2">
+            <ul>
+                <li><a href="../views/HomeView.vue"><img class="bi" width="30" height="30" src="https://i.postimg.cc/RZfJdX2p/home.png" alt="home"></a></li>
+                <li><a href=""><img class="bi" width="30" height="30" src="https://i.postimg.cc/qRrFqDHP/fast-food.png" alt="menu"></a></li>
+                <li><a href="../views/AboutView.vue"><img class="bi" width="30" height="30" src="https://i.postimg.cc/hG4gv0W3/guide-book.png" alt="about"></a></li>
+                <li><a href=""><img class="bi" width="30" height="30" src="https://i.postimg.cc/ZqNgTB0D/feedback.png" alt="feedback"></a></li>
+                <li><a href=""><img class="bi" width="30" height="30" src="https://i.postimg.cc/k46xrK4B/admin-panel.png" alt="admin"></a></li>
+            </ul>
+          </div>
+          <div>
+            <button class="butt1">Log In</button>
+            <button class="butt2">Sign Up</button>
+          </div>
+        </div>
+</template>
+
+<script>
+export default {
+    
+}
+</script>
+
+<style scoped>
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    background: #1e90ff;
+    padding: 1%;
+}
+ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    list-style-type: none;
+    
+}
+li {
+    margin-left: 5%;
+    color: white;
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+.logo{
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    /* margin-top: 9px; */
+}
+.sub1{
+    flex-grow: 1;
+    /* margin-left: 20px; */
+}
+.sub2{
+    flex-grow: 2;
+    margin-top: 2%;
+}
+.butt1,.butt2{
+    height: 35px;
+    width: 110px;
+    margin-top: 3%;
+    background-color: #ff69b4;
+    color: white;
+    /* border: 3px solid; */
+    border-radius: 20px;
+    font-size: 15px;
+    font-weight: bold;
+}
+.butt2{
+    background-color:#ffa500;
+    color: #fff; 
+    font-size: 15px;
+    font-weight: bold;
+}
+.butt1:hover{
+    /* background-color: ; */
+    color: #fff; 
+    font-size: 20px;
+    text-decoration: underline solid 1px#0f0;
+}
+.butt2:hover{
+    /* opacity: 0.8; */
+    color: #fff; 
+    font-size: 20px;
+    text-decoration: underline solid 1px#0f0;
+}
+li:hover{
+    opacity: 0.9;
+    text-decoration: underline solid 2px#0f0;
+    text-underline-offset: 3px ;
+}
+ul li a:active {
+    background: rgb(199, 245, 199);
+    color: #0f0;
+}
+
+@media screen and (max-width: 480px) {
+    body {
+      background-color:rgb(129, 17, 235); 
+    }
+    .container{
+        display: flex;
+        flex-direction: column;
+    }
+    .header{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-top: 20px;
+    }
+}
+</style>
