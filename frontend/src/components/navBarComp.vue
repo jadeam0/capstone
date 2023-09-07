@@ -5,11 +5,21 @@
           </div>
           <div class="sub2">
             <ul>
-                <li><a href="../views/HomeView.vue"><img class="bi" width="30" height="30" src="https://i.postimg.cc/RZfJdX2p/home.png" alt="home"></a></li>
-                <li><a href=""><img class="bi" width="30" height="30" src="https://i.postimg.cc/qRrFqDHP/fast-food.png" alt="menu"></a></li>
-                <li><a href="../views/AboutView.vue"><img class="bi" width="30" height="30" src="https://i.postimg.cc/hG4gv0W3/guide-book.png" alt="about"></a></li>
-                <li><a href=""><img class="bi" width="30" height="30" src="https://i.postimg.cc/ZqNgTB0D/feedback.png" alt="feedback"></a></li>
-                <li><a href=""><img class="bi" width="30" height="30" src="https://i.postimg.cc/k46xrK4B/admin-panel.png" alt="admin"></a></li>
+                <li>
+                    <router-link to="/"><img class="bi" width="30" height="30" src="https://i.postimg.cc/RZfJdX2p/home.png" alt="home"></router-link>
+                </li>
+                <li>
+                    <router-link to=""><img class="bi" width="30" height="30" src="https://i.postimg.cc/qRrFqDHP/fast-food.png" alt="menu"></router-link>
+                </li>
+                <li>
+                    <router-link to="/about"><img class="bi" width="30" height="30" src="https://i.postimg.cc/hG4gv0W3/guide-book.png" alt="about"></router-link>
+                </li>
+                <li>
+                    <router-link to=""><img class="bi" width="30" height="30" src="https://i.postimg.cc/ZqNgTB0D/feedback.png" alt="feedback"></router-link>
+                </li>
+                <li>
+                    <router-link to="/admin"><img class="bi" width="30" height="30" src="https://i.postimg.cc/k46xrK4B/admin-panel.png" alt="admin"></router-link>
+                </li>
             </ul>
           </div>
           <div>

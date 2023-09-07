@@ -1,0 +1,85 @@
+<template>
+    <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#addUsers" data-bs-whatever="@addUser">Add User</button>
+
+    <!--Modal-->
+<div class="modal fade" id="addUsers" aria-hidden="true" aria-labelledby="addUsers" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5 text-dark" id="addUsers">Add New User</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form @submit.prevent="registerUser">
+            <div class="form-outline mb-4">
+                <input type="text" v-model="payload.firstName" placeholder="Name" class="form-control"/>
+            </div>
+            <div class="form-outline mb-4">
+                <input type="text" v-model="payload.lastName" placeholder="Surname" class="form-control"/>
+            </div>
+            <div class="form-outline mb-4">
+                <input type="text" v-model="payload.userAge" placeholder="Age" class="form-control"/>
+            </div>
+            <div class="form-outline mb-4">
+                <input type="text" v-model="payload.gender" placeholder="gender" class="form-control"/>
+            </div>
+            <div class="form-outline mb-4">
+                <input type="date" v-model="payload.userDOB" class="form-control"/>
+            </div>
+            <div class="form-outline mb-4">
+                <input type="email" v-model="payload.emailAdd" placeholder="Email" class="form-control"/>
+            </div>
+            <div class="form-outline mb-4">
+                <input type="password" v-model="payload.userPW" placeholder="Password" class="form-control"/>
+            </div>
+            <div class="form-outline mb-4">
+                <input type="text" v-model="payload.userProfile" class="form-control"/>
+            </div>
+            
+        </form>
+      </div>
+      <div class="modal-footer">
+       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Add User</button>
+      </div>
+    </div>
+  </div>
+</div>
+</template>
+
+<script>
+export default {
+    Name: 'AddUser',
+    data() {
+        return{
+            payload: {
+                firstName: '',
+                lastName: '',
+                userAge:'',
+                gender:'',
+                userDOB:'',
+                emailAdd:'',
+                userPW:'',
+                userProfile:'https://i.postimg.cc/3rZ0H0D8/profile-Image.png'
+            }
+        }
+    },
+
+    computed: {
+        message() {
+            return this.$store.state.message
+        }
+    },
+
+    methods: {
+        registerUser() {
+            console.log('Debug', this.payload);
+            this.$store.dispatch('registerUser', this.payload)
+        }
+    }
+}
+</script>
+
+<style>
+
+</style>
