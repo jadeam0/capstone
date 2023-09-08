@@ -5,11 +5,21 @@
           </div>
           <div class="sub2">
             <ul>
-                <li><a href="../views/HomeView.vue"><img class="bi" width="30" height="30" src="https://i.postimg.cc/RZfJdX2p/home.png" alt="home"></a></li>
-                <li><a href=""><img class="bi" width="30" height="30" src="https://i.postimg.cc/qRrFqDHP/fast-food.png" alt="menu"></a></li>
-                <li><a href="../views/AboutView.vue"><img class="bi" width="30" height="30" src="https://i.postimg.cc/hG4gv0W3/guide-book.png" alt="about"></a></li>
-                <li><a href=""><img class="bi" width="30" height="30" src="https://i.postimg.cc/ZqNgTB0D/feedback.png" alt="feedback"></a></li>
-                <li><a href=""><img class="bi" width="30" height="30" src="https://i.postimg.cc/k46xrK4B/admin-panel.png" alt="admin"></a></li>
+                <li>
+                    <router-link to="/"><img class="bi" width="30" height="30" src="https://i.postimg.cc/RZfJdX2p/home.png" alt="home"></router-link>
+                </li>
+                <li>
+                    <router-link to=""><img class="bi" width="30" height="30" src="https://i.postimg.cc/qRrFqDHP/fast-food.png" alt="menu"></router-link>
+                </li>
+                <li>
+                    <router-link to="/about"><img class="bi" width="30" height="30" src="https://i.postimg.cc/hG4gv0W3/guide-book.png" alt="about"></router-link>
+                </li>
+                <li>
+                    <router-link to=""><img class="bi" width="30" height="30" src="https://i.postimg.cc/ZqNgTB0D/feedback.png" alt="feedback"></router-link>
+                </li>
+                <li>
+                    <router-link to="/admin"><img class="bi" width="30" height="30" src="https://i.postimg.cc/k46xrK4B/admin-panel.png" alt="admin"></router-link>
+                </li>
             </ul>
           </div>
           <div>
@@ -32,7 +42,8 @@ export default {
     justify-content: center;
     flex-wrap: wrap;
     background: #1e90ff;
-    padding: 1%;
+    padding: 5px;
+    /* padding-block-end: 10px; */
 }
 ul{
     display: flex;
@@ -42,7 +53,7 @@ ul{
     
 }
 li {
-    margin-left: 5%;
+    margin-left: 2vh;
     color: white;
     font-size: 15px;
     font-family: Arial, Helvetica, sans-serif;
@@ -59,17 +70,19 @@ a{
     /* margin-top: 9px; */
 }
 .sub1{
-    flex-grow: 1;
-    /* margin-left: 20px; */
+    flex-grow: 2;
+    margin-left: 20px;
+    padding-right: 10vh;
 }
 .sub2{
-    flex-grow: 2;
-    margin-top: 2%;
+    flex-grow: 4;
+    margin-top: 1.5vh;
+    padding-left: 30vh;
 }
 .butt1,.butt2{
     height: 35px;
     width: 110px;
-    margin-top: 3%;
+    margin-top: 10px;
     background-color: #ff69b4;
     color: white;
     /* border: 3px solid; */
