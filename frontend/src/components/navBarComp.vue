@@ -42,7 +42,8 @@ export default {
     justify-content: center;
     flex-wrap: wrap;
     background: #1e90ff;
-    padding: 1%;
+    padding: 5px;
+    /* padding-block-end: 10px; */
 }
 ul{
     display: flex;
@@ -52,7 +53,7 @@ ul{
     
 }
 li {
-    margin-left: 5%;
+    margin-left: 2vh;
     color: white;
     font-size: 15px;
     font-family: Arial, Helvetica, sans-serif;
@@ -69,17 +70,19 @@ a{
     /* margin-top: 9px; */
 }
 .sub1{
-    flex-grow: 1;
-    /* margin-left: 20px; */
+    flex-grow: 2;
+    margin-left: 20px;
+    padding-right: 10vh;
 }
 .sub2{
-    flex-grow: 2;
-    margin-top: 2%;
+    flex-grow: 4;
+    margin-top: 1.5vh;
+    padding-left: 30vh;
 }
 .butt1,.butt2{
     height: 35px;
     width: 110px;
-    margin-top: 3%;
+    margin-top: 10px;
     background-color: #ff69b4;
     color: white;
     /* border: 3px solid; */
