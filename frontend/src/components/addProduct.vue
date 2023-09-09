@@ -31,7 +31,7 @@
                 <input type="text" v-model="payload.prodName" placeholder="Name" class="form-control"/>
             </div>
             <div class="form-outline mb-4">
-                <input type="text" v-model="payload.proDesc" placeholder="Description" class="form-control"/>
+                <input type="text" v-model="payload.prodDesc" placeholder="Description" class="form-control"/>
             </div>
             <div class="form-outline mb-4">
                 <input type="text" v-model="payload.catID" placeholder="Category Number" class="form-control"/>
