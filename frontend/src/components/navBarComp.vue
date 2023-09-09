@@ -1,5 +1,5 @@
 <template>
-    <div class="header">
+    <div style="padding: 1rem;" class="header">
           <div class="sub1">
             <img src="https://i.postimg.cc/MKr8bZpZ/Free-Sample-By-Wix.jpg" alt="" class="logo">
           </div>
@@ -39,7 +39,6 @@ export default {
 .header{
     display: flex;
     flex-direction: row;
-    justify-content: center;
     flex-wrap: wrap;
     background: #1e90ff;
     padding: 5px;
@@ -49,8 +48,7 @@ ul{
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    list-style-type: none;
-    
+    list-style-type: none;    
 }
 li {
     margin-left: 2vh;
@@ -71,13 +69,13 @@ a{
 }
 .sub1{
     flex-grow: 2;
-    margin-left: 20px;
-    padding-right: 10vh;
+    /* margin-left: 20px;
+    padding-right: 10vh; */
 }
 .sub2{
     flex-grow: 4;
     margin-top: 1.5vh;
-    padding-left: 30vh;
+    /* padding-left: 30vh; */
 }
 .butt1,.butt2{
     height: 35px;
@@ -89,11 +87,12 @@ a{
     border-radius: 20px;
     font-size: 15px;
     font-weight: bold;
+    margin: .5rem;
+
 }
 .butt2{
     background-color:#ffa500;
     color: #fff; 
-    font-size: 15px;
     font-weight: bold;
 }
 .butt1:hover{
@@ -118,7 +117,7 @@ ul li a:active {
     color: #0f0;
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 360px) {
     body {
       background-color:rgb(129, 17, 235); 
     }
@@ -129,10 +128,20 @@ ul li a:active {
     .header{
         display: flex;
         flex-direction: column;
-        justify-content: center;
         align-items: center;
         flex-wrap: wrap;
         margin-top: 20px;
+    }
+    .sub2{
+        margin-right: 2.4rem;
+        padding: 1.2rem;
+    }
+
+}
+
+@media screen and (min-width: 361px){
+    .sub2{
+        margin-right: 2.4rem;
     }
 }
 </style>
