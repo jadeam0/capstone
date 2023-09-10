@@ -26,7 +26,10 @@
             <button class="butt1">
                 <router-link to="/login">Log In</router-link>
             </button>
-            <button class="butt2">Sign Up</button>
+            <button class="butt2">
+                <router-link to="/signup">Sign Up</router-link>
+            </button>
+            
           </div>
         </div>
 </template>
