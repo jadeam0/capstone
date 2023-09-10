@@ -35,30 +35,31 @@
       </div>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img
-            class="carousel-image"
-            src="images/ales-krivec-QnNqGoCnBg0-unsplash.jpg"
-            alt="carousel-image-1"
-          />
+          <img class="carousel-image" src="https://i.postimg.cc/v82PwZQC/ales-krivec-Qn-Nq-Go-Cn-Bg0-unsplash.jpg" alt="carousel-image-1"/>
+          <div class="carousel-caption">
+            <h3>Crave Fusion</h3>
+            <p>Where Flavors Unite!</p>
+            <button>Check out the Flavors</button>
+          </div>
         </div>
         <div class="carousel-item">
           <img
             class="carousel-image"
-            src="\images\joanna-kosinska-BteMcldTQVo-unsplash.jpg"
+            src="https://i.postimg.cc/ZKb0hJqt/joanna-kosinska-Bte-Mcld-TQVo-unsplash.jpg"
             alt="carousel-image-2"
           />
         </div>
         <div class="carousel-item">
           <img
             class="carousel-image"
-            src="images/jonathan-borba-PE5DrxufxFc-unsplash.jpg"
+            src="https://i.postimg.cc/CK3zyDRm/jonathan-borba-PE5-Drxufx-Fc-unsplash.jpg"
             alt="carousel-image-3"
           />
         </div>
         <div class="carousel-item">
           <img
             class="carousel-image"
-            src="images/neven-krcmarek-l9t8O7S7s18-unsplash.jpg"
+            src="https://i.postimg.cc/fRPtM13z/neven-krcmarek-l9t8-O7-S7s18-unsplash.jpg"
             alt="carousel-image-4"
           />
         </div>
@@ -87,55 +88,55 @@
   <section class="featured-products font">
     <div style="display: flex; flex-direction: column; align-items: center;">
       <p>Most Popular</p>
-      <p class="featured-heading-2">Our Exclusive Meals</p>
+      <p class="featured-heading-2">Our Popular Meals</p>
     </div>
     <div class="container">
       <div class="card-row">
         <div class="card">
           <img
             class="card-image"
-            src="images/andres-rodriguez-3jJtXTwLZw4-unsplash.jpg"
+            src="https://i.postimg.cc/PxZnCVtn/andres-rodriguez-3j-Jt-XTw-LZw4-unsplash.jpg"
             alt="card-image"
           />
           <div class="card-body">
-            <p>Product</p>
-            <p>Price</p>
+            <p>Fried prawns with baked potatoes</p>
+            <p>R 100</p>
             <a style="width: 100%" href="" class="btn">Buy</a>
           </div>
         </div>
         <div class="card">
           <img
             class="card-image"
-            src="images/chris-gallagher-Jq-apNRn9VA-unsplash.jpg"
+            src="https://i.postimg.cc/ZY8hZQ7r/chris-gallagher-Jq-ap-NRn9-VA-unsplash.jpg"
             alt="card-image"
           />
           <div class="card-body">
-            <p>Product</p>
-            <p>Price</p>
+            <p>Steak with chips, onion rings, and white sauce</p>
+            <p>R 180</p>
             <a style="width: 100%" href="" class="btn">Buy</a>
           </div>
         </div>
         <div class="card">
           <img
             class="card-image"
-            src="images/farhad-ibrahimzade-KpOl9jV2aJM-unsplash.jpg"
+            src="https://i.postimg.cc/LsKTHx01/zulu-fernando-UM4d6-Rsrkm-M-unsplash.jpg"
             alt="card-image"
           />
           <div class="card-body">
-            <p>Product</p>
-            <p>Price</p>
+            <p>Double cheese Taxus burger</p>
+            <p>R 90</p>
             <a style="width: 100%" href="" class="btn">Buy</a>
           </div>
         </div>
         <div class="card">
           <img
             class="card-image"
-            src="images/sam-moghadam-khamseh-i3A-se17VAg-unsplash.jpg"
+            src="https://i.postimg.cc/Y9XYmR88/sam-moghadam-khamseh-i3-A-se17-VAg-unsplash.jpg"
             alt="card-image"
           />
           <div class="card-body">
-            <p>Product</p>
-            <p>Price</p>
+            <p>Stir-fry with grilled chicken wings</p>
+            <p>R 160</p>
             <a style="width: 100%" href="" class="btn">Buy</a>
           </div>
         </div>
@@ -144,7 +145,7 @@
   </section>
 
   <section id="why-choose-us">
-    <p class="heading">Why Choose Us?</p>
+    <p class="heading">Why Choose <span>Us</span>?</p>
     <div class="grid-container">
       <div class="grid-item">
         <i style="width: 20px" class="fi fi-rr-users"></i>
@@ -243,9 +244,52 @@ export default {};
 
 <style scoped>
 /* CAROUSEL */
+.carousel-item {
+  width: 100%;
+  height: 35rem;
+}
+
 .carousel-image {
-  width: 100vw;
-  height: auto;
+  width: 100%;
+  height: fit-content;
+}
+
+.carousel-caption {
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 25rem;
+  height: 16rem;
+  position: absolute;
+  top: 48%;
+  left: 29%;
+  transform: translate(-49%, -50%);
+  border-radius: 3%;
+  /* padding: 20px; Adjust as needed */
+}
+
+.carousel-caption h3 {
+  font-size: 46px;
+}
+
+.carousel-caption p {
+  font-size: 16px;
+}
+
+.carousel-caption button {
+  margin-top: 1.1rem;
+  /* padding: 0.7rem; */
+  border: none;
+  outline: none;
+  background-color: #ffa500;
+  padding: 10px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 16px;
+  transform: .3s ease;
+}
+
+.carousel-caption button:hover {
+  background-color: #e7a52a;
+  cursor: pointer;
 }
 
 .font {
@@ -288,6 +332,11 @@ export default {};
 }
 
 /* WHY-CHOOSE-US-SECTION */
+
+span {
+  color: #0f0;
+  text-decoration: underline solid #0f0;
+}
 .heading {
   color: #1f1f1f;
   text-align: center;
