@@ -23,7 +23,9 @@
             </ul>
           </div>
           <div>
-            <button class="butt1">Log In</button>
+            <button class="butt1">
+                <router-link to="/login">Log In</router-link>
+            </button>
             <button class="butt2">Sign Up</button>
           </div>
         </div>

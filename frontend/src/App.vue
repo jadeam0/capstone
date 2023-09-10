@@ -24,7 +24,7 @@ export default {
 #app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* text-align: center; */
+  text-align: center;
   overflow-x: hidden;
 
   background-color: #f5f5f5;
