@@ -15,7 +15,7 @@
                     <router-link to="/about"><img class="bi" width="30" height="30" src="https://i.postimg.cc/hG4gv0W3/guide-book.png" alt="about"></router-link>
                 </li>
                 <li>
-                    <router-link to=""><img class="bi" width="30" height="30" src="https://i.postimg.cc/ZqNgTB0D/feedback.png" alt="feedback"></router-link>
+                    <router-link to="/feedback"><img class="bi" width="30" height="30" src="https://i.postimg.cc/ZqNgTB0D/feedback.png" alt="feedback"></router-link>
                 </li>
                 <li>
                     <router-link to="/admin"><img class="bi" width="30" height="30" src="https://i.postimg.cc/k46xrK4B/admin-panel.png" alt="admin"></router-link>

@@ -112,9 +112,9 @@
   cursor: pointer;
 }
 
-.gender label {
-  /* color: #000; */
-}
+/* .gender label {
+  color: #000;
+} */
 
 .signin a:hover {
   text-decoration: underline #00ff00;
