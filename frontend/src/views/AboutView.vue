@@ -7,16 +7,27 @@
     <div class="item col-md-6">
       <img
         class="about-image"
-        src="images/stu-moffat-Al9618AKGts-unsplash.jpg"
+        src="https://i.postimg.cc/d0nDXTvZ/jordane-mathieu-4-M-4-ZQFEu-Y-unsplash.jpg"
         alt="about-image"
       />
     </div>
     <div class="item col-md-6 column-text">
       <h3 class="title">Our Story</h3>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dapibus
-        sodales quam in consectetur. Ut eget eros pulvinar, volutpat ex nec,
-        lobortis nulla. Aliquam ornare lorem efficitur finibus tristique.
+        It all began with a shared passion for good food and a deep sense of community. 
+        Our journey started in the heart of our neighborhood, where we witnessed talented 
+        cooks eager to share their culinary skills and individuals seeking meaningful 
+        employment opportunities.
+      </p>
+      <p>
+        Driven by the belief that everyone deserves a taste of homemade goodness and 
+        a chance to thrive, we embarked on a mission. We created an online food e-commerce 
+        platform that brings together the talent of our local chefs and the needs of our community.
+      </p>
+      <p>
+        Our platform isn't just about ordering food; it's about connecting, supporting, 
+        and savoring the flavors of home. Every meal you enjoy is a result of the collective 
+        effort of our chefs, our dedicated team, and the sense of togetherness that defines us.
       </p>
     </div>
   </div>
@@ -24,15 +35,21 @@
     <div class="item column-text col-md-6">
       <h3 class="title">Our Mission</h3>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dapibus
-        sodales quam in consectetur. Ut eget eros pulvinar, volutpat ex nec,
-        lobortis nulla. Aliquam ornare lorem efficitur finibus tristique.
+        Our twofold goal is: First and foremost, we're committed to providing you 
+        with the freshest and tastiest handcrafted foods that suit your preferences 
+        and hectic schedule. Every meal should be enjoyable, is our goal.
+      </p>
+      <p>
+        Second, and no less significant, we're dedicated to having a positive 
+        influence on our neighbourhood. By working with skilled chefs and creating 
+        chances for local employment, we are not only sating appetites but also supporting 
+        growth and establishing a sense of community.
       </p>
     </div>
     <div class="item col-md-6">
       <img
         class="about-image"
-        src="images/sam-moghadam-khamseh-i3A-se17VAg-unsplash.jpg"
+        src="https://i.postimg.cc/D0SgmT55/toa-heftiba-5-Je-Tin55-H9-U-unsplash.jpg"
         alt="about-image"
       />
     </div>
@@ -40,7 +57,7 @@
   <div class="team">
     <div class="team-title">
       <p class="title">Our Team</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
     </div>
 
     <div class="team-container card-columns">

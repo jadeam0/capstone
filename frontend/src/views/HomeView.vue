@@ -348,8 +348,9 @@ span {
 .row{
   background: #66b0fa; 
   width: 100%;
-  /* margin: 0; */
+  margin: 0;
   padding: 5rem;
+  padding-bottom: 0;
   /* height: 70%; */
 }
 
