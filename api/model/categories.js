@@ -3,8 +3,8 @@ const db = require('../config/index');
 class Categories {
     fetchCategories(req, res) {
         const query =`
-        SELECT catID, catName,
-        FROM cart;
+        SELECT catID, catName
+        FROM categories;
         `
         db.query(query, (err, results) => {
             if (err) {
@@ -19,13 +19,12 @@ class Categories {
 
     addCategory(req, res) {
         const query =`
-        INSERT INTO cart
+        INSERT INTO categories
         SET ?;
         `
         db.query(query, [req.body], (err) => {
-            if (err) {
-                res.status(400).json({err: 'Could not add Category'});
-            } else {
+            if (err) throw err
+            else {
                 res.status(200).json({msg: 'Category added'});
             }
         });

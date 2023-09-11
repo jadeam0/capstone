@@ -115,7 +115,7 @@ class Users {
      UPDATE users
      SET ?
      WHERE userID = ?;
-     `;
+     `
     db.query(query, [req.body, req.params.id], (err) => {
       if (err) {
         console.log(err);

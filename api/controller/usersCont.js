@@ -21,11 +21,11 @@ userRoutes.post('/register', bodyParser.json(), (req, res) => {
     users.register(req, res);
 });
 
-userRoutes.put('user/:id', bodyParser.json(), (req, res) => {
+userRoutes.put('/user/:id', bodyParser.json(), (req, res) => {
     users.updateUser(req, res);
 });
 
-userRoutes.delete('user/:id', (req, res) => {
+userRoutes.delete('/user/:id', (req, res) => {
     users.deleteUser(req, res);
 });
 

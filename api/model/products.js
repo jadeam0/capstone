@@ -3,7 +3,7 @@ const db = require('../config/index');
 class Products {
     fetchProducts(req, res) {
         const query = `
-        SELECT prodID, prodName, quantity, prodPrice, prodUrl, catID,
+        SELECT prodID, prodName, quantity, prodPrice, prodUrl, catID
         FROM products;
         `
         db.query(query, (err, results) => {
@@ -19,7 +19,7 @@ class Products {
 
     fetchProduct(req, res) {
         const query = `
-        SELECT prodID, prodName, quantity, prodPrice, prodUrl, catID,
+        SELECT prodID, prodName, quantity, prodPrice, prodUrl, catID
         FROM products
         WHERE prodID = ${ req.params.id };
         `
