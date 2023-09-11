@@ -148,39 +148,31 @@
     <p class="heading">Why Choose <span>Us</span>?</p>
     <div class="grid-container">
       <div class="grid-item">
-        <i style="width: 20px" class="fi fi-rr-users"></i>
-        <p class="item-heading">Lorem ipsum dolor</p>
+        <img style="width: 4rem" src="https://i.postimg.cc/JnD5ntDd/quality.png" class="grid-img">
+        <p class="item-heading">Quality and Reliabilityr</p>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-          dapibus sodales quam in consectetur. Ut eget eros pulvinar, volutpat
-          ex nec, lobortis nulla.
+          Our food e-commerce website was developed with a focus on dependability and quality to make sure that college students have access to dependably great home-cooked meals.
         </p>
       </div>
       <div class="grid-item">
-        <i class="fi fi-rr-users"></i>
-        <p class="item-heading">Lorem ipsum dolor</p>
+        <img class="grid-img" style="width: 4rem" src="https://i.postimg.cc/kX4Y3Mwz/people.png">
+        <p class="item-heading">Customer-Centric Approach</p>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-          dapibus sodales quam in consectetur. Ut eget eros pulvinar, volutpat
-          ex nec, lobortis nulla.
+          Our e-commerce is built on a customer-centric philosophy that prioritises the special preferences and schedules of college students.
         </p>
       </div>
       <div class="grid-item">
-        <i class="fi fi-rr-users"></i>
-        <p class="item-heading">Lorem ipsum dolor</p>
+        <img class="grid-img" src="https://i.postimg.cc/7L8fr61N/think-outside-the-box.png" style="width: 4rem">
+        <p class="item-heading">Innovation and Uniqueness</p>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-          dapibus sodales quam in consectetur. Ut eget eros pulvinar, volutpat
-          ex nec, lobortis nulla.
+          Our platform stands out for its revolutionary features, which give students a unique and interesting gastronomic experience.
         </p>
       </div>
       <div class="grid-item">
-        <i class="fi fi-rr-users"></i>
-        <p class="item-heading">Lorem ipsum dolor</p>
+        <img class="grid-img" src="https://i.postimg.cc/59D0Cgjt/value.png" style="width: 4rem">
+        <p class="item-heading">Value for Money</p>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-          dapibus sodales quam in consectetur. Ut eget eros pulvinar, volutpat
-          ex nec, lobortis nulla.
+          We are dedicated to providing outstanding value for money, making sure that college students can afford to eat healthy, home-cooked meals.
         </p>
       </div>
     </div>
@@ -188,51 +180,28 @@
 
   <section id="who-makes-your-food">
     <div class="row">
-      <div class="col-lg-6">
+      <div class="col-lg-6" id="txt">
         <p class="heading-last">Who Makes Your Food?</p>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-          dapibus sodales quam in consectetur. Ut eget eros pulvinar, volutpat
-          ex nec, lobortis nulla.
+        <p class="par">
+          At our online food e-commerce platform, we take great pride in the answer to this question. 
+          We believe in the power of community and social impact. That's why the heart of our initiative 
+          lies in empowering individuals within our community who face employment challenges. We have 
+          collaborated with talented and hardworking cooks from within the community, providing them with 
+          opportunities to showcase their culinary skills and earn a livelihood by preparing the delicious 
+          home-cooked meals that you order. These chefs pour their passion and expertise into each dish, 
+          ensuring that you not only enjoy a satisfying meal but also support a meaningful cause.
         </p>
-        <br />
-        <div style="display: flex; align-items: center;">
-          <img class="food-image" src="check-circle.png" alt="check-circle" />
-          <p>
-            Aliquam ornare lorem efficitur finibus tristique. Ut suscipit eros
-            facilisis ante sagittis, at tempor neque euismod. Duis tempus
-            pharetra rhoncus
-          </p>
-        </div>
-        <div style="display: flex; align-items: center;">
-          <img class="food-image" src="check-circle.png" alt="check-circle" />
-          <p>
-            Aliquam ornare lorem efficitur finibus tristique. Ut suscipit eros
-            facilisis ante sagittis, at tempor neque euismod. Duis tempus
-            pharetra rhoncus
-          </p>
-        </div>
-        <div style="display: flex; align-items: center;">
-          <img class="food-image" src="check-circle.png" alt="check-circle" />
-          <p>
-            Aliquam ornare lorem efficitur finibus tristique. Ut suscipit eros
-            facilisis ante sagittis, at tempor neque euismod. Duis tempus
-            pharetra rhoncus
-          </p>
-        </div>
-        <div style="display: flex; align-items: center;">
-          <img class="food-image" src="check-circle.png" alt="check-circle" />
-          <p>
-            Aliquam ornare lorem efficitur finibus tristique. Ut suscipit eros
-            facilisis ante sagittis, at tempor neque euismod. Duis tempus
-            pharetra rhoncus
-          </p>
-        </div>
-        <a style="width: 40%; margin: 2rem;" href="" class="btn last-btn">Discover our menu</a>
-
+        <p class="par">
+          In addition to our chefs, we also engage members of our community as delivery personnel. 
+          This not only fosters a sense of belonging and mutual support within our community but 
+          also allows us to provide employment to those who need it most. So, when you order from us, 
+          you're not just getting a meal; you're partaking in a movement that uplifts individuals and 
+          strengthens the bonds within our community. Together, we're not just delivering food; we're 
+          serving a purpose.
+        </p>
       </div>
-      <div class="col-lg-6" style="padding: 4rem">
-        <img class="chef-image" src="chef-image-2.jpg" alt="chef-image" />
+      <div class="col-lg-6 g-5" style="">
+        <img class="chef-image" src="https://i.postimg.cc/fLG1CJ66/chef-image-2.jpg" alt="chef-image" />
       </div>
     </div>
   </section>
@@ -248,12 +217,10 @@ export default {};
   width: 100%;
   height: 35rem;
 }
-
 .carousel-image {
   width: 100%;
   height: fit-content;
 }
-
 .carousel-caption {
   background-color: rgba(0, 0, 0, 0.5);
   width: 25rem;
@@ -265,15 +232,12 @@ export default {};
   border-radius: 3%;
   /* padding: 20px; Adjust as needed */
 }
-
 .carousel-caption h3 {
   font-size: 46px;
 }
-
 .carousel-caption p {
   font-size: 16px;
 }
-
 .carousel-caption button {
   margin-top: 1.1rem;
   /* padding: 0.7rem; */
@@ -286,12 +250,10 @@ export default {};
   font-size: 16px;
   transform: .3s ease;
 }
-
 .carousel-caption button:hover {
   background-color: #e7a52a;
   cursor: pointer;
 }
-
 .font {
   font-family: "Open Sans", sans-serif;
 }
@@ -313,18 +275,15 @@ export default {};
   width: 100%;
   border-radius: 20px 20px 0 0;
 }
-
 .card {
   margin: 1rem;
   border-radius: 20px;
   width: 14rem;
 }
-
 .card-row {
   display: flex;
   justify-content: space-between;
 }
-
 .btn {
   border-radius: 5px;
   background: #ffa500;
@@ -346,14 +305,12 @@ span {
   font-weight: 700;
   line-height: normal;
 }
-
 .grid-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 2.5rem;
   padding: 6rem;
 }
-
 .item-heading {
   color: #1f1f1f;
   font-family: Cormorant;
@@ -362,30 +319,38 @@ span {
   font-weight: 700;
   line-height: normal;
 }
+.grid-img {
+  margin-bottom: 1rem;
+}
 
 /* WHO-MAKES-YOUR-FOOD-SECTION */
 .heading-last {
   color: #1f1f1f;
   font-family: Cormorant;
-  font-size: 36px;
+  font-size: 39px;
   font-style: normal;
   font-weight: 500;
-  line-height: normal;
+  /* line-height: normal; */
+  margin-bottom: 1rem;
+  /* text-align: left; */
+}
+
+#txt {
+  padding: 3rem;
+}
+.par {
+  text-align: left;
 }
 .chef-image {
-  width: 100%;
+  width: 97%;
+  height: 87%;
 }
-
-.food-image{
-  max-height: 30px;
-  margin: 1rem;
-}
-
 .row{
-  background: #1e90ff; 
+  background: #66b0fa; 
   width: 100%;
-  margin: 0;
-  padding: 4rem;
+  /* margin: 0; */
+  padding: 5rem;
+  /* height: 70%; */
 }
 
 @media screen and (max-width: 360px) {
