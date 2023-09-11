@@ -1,62 +1,103 @@
 <template>
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addProduct" data-bs-whatever="@addProduct">Add Product</button>
+  <div>
+    <button
+      type="button"
+      class="btn btn-primary"
+      data-bs-toggle="modal"
+      data-bs-target="#exampleModalToggle2"
+    >
+      Add Product
+    </button>
 
-    <!--Modal-->
-    <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalToggleLabel">Modal 1</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        Show a second modal and hide this one with the button below.
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Open second modal</button>
+    <!-- Second Modal -->
+    <div
+      class="modal fade"
+      id="exampleModalToggle2"
+      aria-hidden="true"
+      aria-labelledby="addProducts"
+      tabindex="-1"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5 text-dark" id="addProducts">
+              Add New Product
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form @submit.prevent="addProduct">
+              <div class="form-outline mb-4">
+                <input
+                  type="text"
+                  v-model="payload.prodName"
+                  placeholder="Name"
+                  class="form-control"
+                />
+              </div>
+              <div class="form-outline mb-4">
+                <input
+                  type="text"
+                  v-model="payload.prodDesc"
+                  placeholder="Description"
+                  class="form-control"
+                />
+              </div>
+              <div class="form-outline mb-4">
+                <input
+                  type="text"
+                  v-model="payload.catID"
+                  placeholder="Category Number"
+                  class="form-control"
+                />
+              </div>
+              <div class="form-outline mb-4">
+                <input
+                  type="text"
+                  v-model="payload.prodPrice"
+                  placeholder="Price"
+                  class="form-control"
+                />
+              </div>
+              <div class="form-outline mb-4">
+                <input
+                  type="text"
+                  v-model="payload.prodUrl"
+                  placeholder="Image"
+                  class="form-control"
+                />
+              </div>
+              <div class="form-outline mb-4">
+                <input
+                  type="text"
+                  v-model="payload.quantity"
+                  placeholder="Quantity"
+                  class="form-control"
+                />
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-primary" @click="addProduct">
+              Add Product
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5 text-dark" id="addProducts">Add New Product</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form @submit.prevent="addProduct">
-            <div class="form-outline mb-4">
-                <input type="text" v-model="payload.prodName" placeholder="Name" class="form-control"/>
-            </div>
-            <div class="form-outline mb-4">
-                <input type="text" v-model="payload.prodDesc" placeholder="Description" class="form-control"/>
-            </div>
-            <div class="form-outline mb-4">
-                <input type="text" v-model="payload.catID" placeholder="Category Number" class="form-control"/>
-            </div>
-            <div class="form-outline mb-4">
-                <input type="text" v-model="payload.prodPrice" placeholder="Price" class="form-control"/>
-            </div>
-            <div class="form-outline mb-4">
-                <input type="text" v-model="payload.prodUrl" placeholder="Image" class="form-control"/>
-            </div>
-            <div class="form-outline mb-4">
-                <input type="text" v-model="payload.quantity" placeholder="Quantity" class="form-control"/>
-            </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Add Product</button>
-      </div>
-    </div>
-  </div>
-</div>
-<a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Open first modal</a>
-
-
 </template>
 
 <script>
@@ -83,7 +124,8 @@ export default {
 
     methods: {
         addProduct() {
-            console.log('Debug', this.payload);
+           this.$store.dispatch('addProduct', this.payload);
+          //  ('#addProductModal').modal('hide'); // Close the modal
         }
     }
 }

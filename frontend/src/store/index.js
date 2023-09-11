@@ -1,13 +1,13 @@
 import { createStore } from 'vuex'
 import axios from 'axios';
 import router from '@/router'
-import {sweet} from 'sweet';
-import { useCookies } from 'vue-cookies';
+// import {sweet} from 'sweet';
+// import { useCookies } from 'vue-cookies';
 // import { values } from 'core-js/core/array';
 // import { error } from 'console';
 
 // const {cookies} = useCookies()
-const jdAPI = "https://capstone-wv10.onrender.com"
+const jdAPI = "https://capstone-wv10.onrender.com/";
 
 export default createStore({
   state: {
@@ -47,7 +47,7 @@ export default createStore({
       state.token = value
     },
     setSpinner(state, value) {
-      state.spinner = value
+      state.showSpinner = value
     },
     setMessage(state, value) {
       state.message = value
@@ -69,21 +69,21 @@ export default createStore({
     // -------User---------
     async getUsers(context) {
       try{
-        const res = await axios.get(`${jdAPI}users`);
+        const res = await axios.get(`${jdAPI}user/users`);
         let { results, err } = await res.data;
         if(results) {
           context.commit('setUsers', results)
         } else {
           alert("setMessage", err)
         }
-      } catch(e) {
+      } catch(err) {
         console.log(err)
       }
     },
 
     async getUser(context, id) {
       try {
-        const res = await axios.get(`${jdAPI}user/${id}`);
+        const res = await axios.get(`${jdAPI}user/user/${id}`);
         let {results, err} = await res.data;
         if(results) {
           context.commit('setUser', results)
@@ -97,7 +97,7 @@ export default createStore({
 
     async updateUser(context, payload) {
       try {
-        const res = await axios.put(`${jdAPI}user/${payload.userID}`, payload)
+        const res = await axios.put(`${jdAPI}user/user/${payload.userID}`, payload)
         console.log('Response: ', res);
         alert ('USER SUCCESSFULLY UPDATED')
         let {results, err} = await res.data;
@@ -113,7 +113,7 @@ export default createStore({
 
     async deleteUser({commit, dispatch}, id) {
       try {
-        await axios.delete(`${jdAPI}user/${id}`);
+        await axios.delete(`${jdAPI}user/user/${id}`);
         commit('setMessage', 'user successfully deleted');
         alert('USER SUCCESSFULLY DELETED')
         dispatch('getUsers');
@@ -125,7 +125,7 @@ export default createStore({
     //--------Register-----------
     async registerUser(context, payload) {
       try {
-        const res = await axios.post(`${jdAPI}register`, payload);
+        const res = await axios.post(`${jdAPI}user/register`, payload);
         console.log('Response: ', res);
         alert('USER SUCCESSFULLY CREATED')
         const {result, msg, err} = await res.data
@@ -143,7 +143,7 @@ export default createStore({
     //-------Login--------
     async login(context, payload) {
       try {
-        const response = await axios.post(`${jdAPI}login`, payload);
+        const response = await axios.post(`${jdAPI}user/login`, payload);
         console.log('Response', response);
         alert('LOGIN SUCCESSFUL')
         const {result, jwToken, msg, err} = await response.data
@@ -168,22 +168,25 @@ export default createStore({
     //-------Product---------
     async getProducts(context) {
       try{
-        const res =  await axios.get(`${jdAPI}products`);
+        const res =  await axios.get(`${jdAPI}product/products`);
+        // console.log(res);
         let {results, err} = await res.data;
+        // console.log(res.data);
         if(results) {
+          // console.log(results);
           context.commit('setProducts', results)
         } else {
-          alert('setMessage', err)
+          alert('could not find products', err)
         }
-      } catch(err){
-        console.log(err)
+      } catch(error){
+        console.log(error)
       }
    },
 
    async getProduct(context, id) {
     try{
       context.commit('setSpinner', true)
-      const res= await axios.get(`${jdAPI}product/${id}`);
+      const res= await axios.get(`${jdAPI}product/product/${id}`);
       const {result, err} = await res.data;
       if(result) {
         context.commit('setProduct', result[0]);
@@ -199,7 +202,7 @@ export default createStore({
 
    async addProduct(context, payload) {
     try {
-      const res = await axios.post(`${jdAPI}addProduct`, payload);
+      const res = await axios.post(`${jdAPI}product/addProduct`, payload);
       console.log('Response: ', res);
       alert('PRODUCT SUCCESSFULLY CREATED')
       let {result, msg, err} = await res.data;
@@ -216,14 +219,14 @@ export default createStore({
 
    async updateProduct(context, payload) {
     try {
-      const res = await axios.put(`${jdAPI}product/${payload.prodID}`, payload)
+      const res = await axios.put(`${jdAPI}product/product/${payload.prodID}`, payload)
       console.log('Response: ', res);
       alert('PRODUCT UPDATED')
       let {result, err} = await res.data;
       if(result){
         context.commit('setProduct', result[0])
       } else {
-        context.commit('setMessage', err)
+        context.commit('could not update', err)
       }
     } catch(err) {
       console.log(err);
@@ -232,12 +235,12 @@ export default createStore({
 
    async deleteProduct({commit, dispatch}, id) {
     try {
-      await axios.delete(`${jdAPI}product.${id}`);
+      await axios.delete(`${jdAPI}product/product/${id}`);
       commit('setMessage', 'product deleted');
       alert('PRODUCT DELETED')
       dispatch('getProducts');
     } catch(err){
-      alert('setMessage', 'failed to delete product');
+      alert('failed to delete product', err);
     }
    },
 

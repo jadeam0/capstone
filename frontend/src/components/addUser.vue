@@ -1,5 +1,5 @@
 <template>
-    <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#addUsers" data-bs-whatever="@addUser">Add User</button>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addUsers" data-bs-whatever="@addUser">Add User</button>
 
     <!--Modal-->
 <div class="modal fade" id="addUsers" aria-hidden="true" aria-labelledby="addUsers" tabindex="-1">
@@ -40,7 +40,7 @@
       </div>
       <div class="modal-footer">
        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Add User</button>
+        <button type="button" class="btn btn-primary" @click="registerUser">Add User</button>
       </div>
     </div>
   </div>
