@@ -131,9 +131,9 @@ export default createStore({
         const {result, msg, err} = await res.data
         if(result) {
           context.commit('setUser', result);
-          context.commit('setMessage', msg);
+          context.commit('user added', msg);
         } else {
-          alert('setMessage', err)
+          alert('user not added', err)
         }
       } catch(err) {
         console.error(err)

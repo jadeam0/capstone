@@ -18,6 +18,7 @@ export default {
   left: 0;
   right: 0;
   background-color: antiquewhite;
+  background-size: 100%;
 }
 
 .loading:before,

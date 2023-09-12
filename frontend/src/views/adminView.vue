@@ -1,5 +1,5 @@
 <template>
-  <div id="admin">
+  <div v-if="products" id="admin">
     <!-- Side Bar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
@@ -47,8 +47,8 @@
       <div class="add">
         <AddProduct />
       </div>
-      <SpinnerComponent v-if="isLoading" />
-      <div class="container-fluid table-responsive" v-else>
+
+      <div class="container-fluid table-responsive">
         <div id="products-table">
           <table
             class="table w-75 m-auto shadow-lg bg-danger text-light text-center rounded-3"
@@ -57,12 +57,13 @@
               <tr>
                 <th>ID</th>
                 <th>Name</th>
+                <th>Description</th>
                 <th>Category</th>
                 <th>Price</th>
                 <th>Quantity</th>
                 <th>Image</th>
-                <th>Edit</th>
-                <th>Delete</th>
+                <th></th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
@@ -72,25 +73,29 @@
                 :product="product"
               >
                 <td>{{ product.prodID }}</td>
-                <td>{{ product.prodDesc }}</td>
                 <td>{{ product.prodName }}</td>
+                <td>{{ product.prodDesc }}</td>
                 <td>{{ product.catID }}</td>
                 <td>{{ product.prodPrice }}</td>
                 <td>{{ product.quantity }}</td>
                 <td><img class="product-img" :src="product.prodUrl" /></td>
                 <td>
+                  <!-- Button trigger modal -->
                   <button
-                    class="btn btn-outline-dark"
-                    :data-bs-toggle="'#editProducts' + product.prodID"
+                    type="button"
+                    class="btn btn-primary"
+                    data-bs-toggle="modal"
+                    :data-bs-target="'#editProducts' + product.prodID"
                   >
-                    <i class="fa-solid fa-pen-to-square">Edit</i>
+                    Edit
                   </button>
-                  <!-- Modal -->
+
+                  <!-- model  -->
                   <div
                     class="modal fade"
                     :id="'editProducts' + product.prodID"
                     tabindex="-1"
-                    aria-labelledby="editProduct"
+                    aria-labelledby="product.prodID"
                     aria-hidden="true"
                   >
                     <div class="modal-dialog">
@@ -113,6 +118,7 @@
                                 type="text"
                                 v-model="product.prodName"
                                 class="form-control"
+                                placeholder="Name"
                               />
                             </div>
                             <div class="form-outline mb-4">
@@ -120,6 +126,7 @@
                                 type="text"
                                 v-model="product.prodDesc"
                                 class="form-control"
+                                placeholder="Description"
                               />
                             </div>
                             <div class="form-outline mb-4">
@@ -127,6 +134,7 @@
                                 type="text"
                                 v-model="product.catID"
                                 class="form-control"
+                                placeholder="Category number"
                               />
                             </div>
                             <div class="form-outline mb-4">
@@ -134,6 +142,7 @@
                                 type="text"
                                 v-model="product.prodPrice"
                                 class="form-control"
+                                placeholder="Price"
                               />
                             </div>
                             <div class="form-outline mb-4">
@@ -141,6 +150,7 @@
                                 type="text"
                                 v-model="product.prodUrl"
                                 class="form-control"
+                                placeholder="Image"
                               />
                             </div>
                             <div class="form-outline mb-4">
@@ -148,6 +158,7 @@
                                 type="text"
                                 v-model="product.quantity"
                                 class="form-control"
+                                placeholder="Quantity"
                               />
                             </div>
                             <div class="modal-footer">
@@ -194,8 +205,8 @@
       <div class="add">
         <AddUser />
       </div>
-      <SpinnerComponent v-if="isLoading" />
-      <div class="container-fluid table-responsive" v-else>
+
+      <div class="container-fluid table-responsive">
         <div id="products-table">
           <table
             class="table w-75 m-auto shadow-lg bg-danger text-light text-center rounded-3"
@@ -210,11 +221,14 @@
                 <th>userRole</th>
                 <th>Birth</th>
                 <th>Email</th>
-                <th>Image</th>
+                <th>Password</th>
                 <th>Phone</th>
+                <th>Image</th>
+                <th></th>
+                <th></th>
               </tr>
             </thead>
-            <tbody>
+            <tbody v-if="users">
               <tr v-for="user in users" :key="user.userID" :user="user">
                 <td>{{ user.userID }}</td>
                 <td>{{ user.firstName }}</td>
@@ -228,12 +242,16 @@
                 <td>{{ user.phone }}</td>
                 <td><img class="user-img" :src="user.userProfile" /></td>
                 <td>
+                  <!-- Button trigger modal -->
                   <button
-                    class="btn btn-outline-dark"
-                    :data-bs-toggle="'#editusers' + user.userID"
+                    type="button"
+                    class="btn btn-primary"
+                    data-bs-toggle="modal"
+                    :data-bs-target="'#editusers' + user.userID"
                   >
-                    <i class="fa-solid fa-pen-to-square">Edit</i>
+                    Edit
                   </button>
+
                   <!-- Modal -->
                   <div
                     class="modal fade"
@@ -245,7 +263,9 @@
                     <div class="modal-dialog">
                       <div class="modal-content">
                         <div class="modal-header">
-                          <h1 class="modal-title fs-5" id="editusers">Edit</h1>
+                          <h5 class="modal-title" id="user.userID">
+                            User Edit
+                          </h5>
                           <button
                             type="button"
                             class="btn-close"
@@ -260,6 +280,7 @@
                                 type="text"
                                 v-model="user.firstName"
                                 class="form-control"
+                                placeholder="first Name"
                               />
                             </div>
                             <div class="form-outline mb-4">
@@ -267,6 +288,7 @@
                                 type="text"
                                 v-model="user.lastName"
                                 class="form-control"
+                                placeholder="Surname"
                               />
                             </div>
                             <div class="form-outline mb-4">
@@ -274,6 +296,7 @@
                                 type="text"
                                 v-model="user.userAge"
                                 class="form-control"
+                                placeholder="Age"
                               />
                             </div>
                             <div class="form-outline mb-4">
@@ -281,6 +304,7 @@
                                 type="text"
                                 v-model="user.gender"
                                 class="form-control"
+                                placeholder="Gender"
                               />
                             </div>
                             <div class="form-outline mb-4">
@@ -288,13 +312,7 @@
                                 type="text"
                                 v-model="user.userRole"
                                 class="form-control"
-                              />
-                            </div>
-                            <div class="form-outline mb-4">
-                              <input
-                                type="text"
-                                v-model="user.userDOB"
-                                class="form-control"
+                                placeholder="Role"
                               />
                             </div>
                             <div class="form-outline mb-4">
@@ -302,6 +320,7 @@
                                 type="text"
                                 v-model="user.emailAdd"
                                 class="form-control"
+                                placeholder="Email"
                               />
                             </div>
                             <div class="form-outline mb-4">
@@ -309,6 +328,7 @@
                                 type="text"
                                 v-model="user.userPW"
                                 class="form-control"
+                                placeholder="Password"
                               />
                             </div>
                             <div class="form-outline mb-4">
@@ -323,25 +343,26 @@
                                 type="text"
                                 v-model="user.phone"
                                 class="form-control"
+                                placeholder="Phone Number"
                               />
                             </div>
-                            <div class="modal-footer">
-                              <button
-                                type="button"
-                                class="btn btn-outline-dark"
-                                data-bs-dismiss="modal"
-                              >
-                                Close
-                              </button>
-                              <button
-                                type="submit"
-                                class="btn btn-outline-dark"
-                                @click="updateUser(user.userID)"
-                              >
-                                Save
-                              </button>
-                            </div>
                           </form>
+                        </div>
+                        <div class="modal-footer">
+                          <button
+                            type="button"
+                            class="btn btn-outline-dark"
+                            data-bs-dismiss="modal"
+                          >
+                            Close
+                          </button>
+                          <button
+                            type="submit"
+                            class="btn btn-outline-dark"
+                            @click="updateUser(user.userID)"
+                          >
+                            Save
+                          </button>
                         </div>
                       </div>
                     </div>
@@ -365,7 +386,9 @@
     <!-- suppliers -->
     <div id="suppliers"></div>
   </div>
+  <div v-else><SpinnerComponent /></div>
 </template>
+
 <script>
 import AddProduct from "../components/addProduct.vue";
 import AddUser from "@/components/addUser.vue";
@@ -425,7 +448,6 @@ export default {
         userAge: user.userAge,
         gender: user.gender,
         userRole: user.userRole,
-        userDOB: user.userDOB,
         emailAdd: user.emailAdd,
         userPW: user.userPW,
         userProfile: user.userProfile,
@@ -439,9 +461,19 @@ export default {
   },
 };
 </script>
+
 <style scoped>
 #admin {
   width: 100%;
   height: 100vh;
+}
+
+.modal {
+  color: black;
+}
+
+td img {
+  width: 3rem;
+  height: 3rem;
 }
 </style>

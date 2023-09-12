@@ -24,9 +24,6 @@
                 <input type="text" v-model="payload.gender" placeholder="gender" class="form-control"/>
             </div>
             <div class="form-outline mb-4">
-                <input type="date" v-model="payload.userDOB" class="form-control"/>
-            </div>
-            <div class="form-outline mb-4">
                 <input type="email" v-model="payload.emailAdd" placeholder="Email" class="form-control"/>
             </div>
             <div class="form-outline mb-4">
@@ -57,10 +54,9 @@ export default {
                 lastName: '',
                 userAge:'',
                 gender:'',
-                userDOB:'',
                 emailAdd:'',
                 userPW:'',
-                userProfile:'https://i.postimg.cc/3rZ0H0D8/profile-Image.png'
+                userProfile:''
             }
         }
     },
@@ -73,7 +69,7 @@ export default {
 
     methods: {
         registerUser() {
-            console.log('Debug', this.payload);
+            // console.log('Debug', this.payload);
             this.$store.dispatch('registerUser', this.payload)
         }
     }
