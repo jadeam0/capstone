@@ -1,62 +1,77 @@
 <template>
     <div id="container">
-    <form class="form">
+    <form class="form"  @submit.prevent="registerUser">
     <p class="title"><img src="https://i.postimg.cc/MKr8bZpZ/Free-Sample-By-Wix.jpg" alt="" class="logo"></p>
     <!-- <p class="message">Signup now and get full access to our app. </p> -->
         <div class="flex">
         <label>
-            <input class="input" type="text" placeholder="" required="">
+            <input class="input" type="text" placeholder="" required="" v-model="payload.firstName">
             <span>Firstname</span>
         </label>
 
         <label>
-            <input class="input" type="text" placeholder="" required="">
+            <input class="input" type="text" placeholder="" required="" v-model="payload.lastName">
             <span>Lastname</span>
         </label>
     </div>  
             
     <label>
-        <input class="input" type="email" placeholder="" required="">
+        <input class="input" type="email" placeholder="" required="" v-model="payload.emailAdd">
         <span>Email</span>
     </label> 
 
     <label>
-        <input class="input" type="text" placeholder="" required="">
+        <input class="input" type="text" placeholder="" required="" v-model="payload.phone">
         <span>Phone Number</span>
     </label>
-
     <label>
-        <input class="input" type="date" placeholder="" required="">
-        <!-- <span>Date of Birth</span> -->
+        <input class="input" type="text" placeholder=""  v-model="payload.gender">
+        <span>Male/Female</span>
     </label>
-
-    <label>Gender</label>
-        <div class="gender-option">
-          <div class="gender">
-            <input checked="" name="gender" id="check-male" type="radio">
-            <label for="check-male">Male</label>
-          </div>
-          <div class="gender">
-            <input name="gender" id="check-female" type="radio">
-            <label for="check-female">Female</label>
-          </div>
-        </div>
-
     <label>
-        <input class="input" type="password" placeholder="" required="">
+        <input class="input" type="password" placeholder="" required="" v-model="payload.userPW">
         <span>Password</span>
     </label>
-    <!-- <label>
-        <input class="input" type="password" placeholder="" required="">
-        <span>Confirm password</span>
-    </label> -->
-    <button class="submit">Signup</button>
-    <p class="signin">Already have an acount ? <a href="#">Signin</a> </p>
+    <label>
+        <input class="input" type="text" placeholder="" v-model="payload.userProfile">
+        <span>Profile Image</span>
+    </label>
+
+    <button class="submit" @click="registerUser">Signup</button>
+    <p class="signin">Already have an account ? <a href="/login">Signin</a> </p>
 </form>
 </div>
 </template>
 
-<script></script>
+<script>
+export default {
+  Name: 'SignIn',
+  data() {
+    return {
+      payload: {
+        firstName: '',
+        lastName: '',
+        emailAdd: '',
+        phone: '',
+        gender: '',
+        userPW : '',
+        userProfile: ''
+      }
+    }
+  },
+  computed: {
+    message() {
+      return this.$store.state.message
+    }
+  },
+  methods: {
+    registerUser() {
+      console.log('Debug', this.payload);
+      this.$store.dispatch('registerUser', this.payload)
+    }
+  }
+}
+</script>
 
 <style>
 #container {

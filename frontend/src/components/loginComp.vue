@@ -1,18 +1,43 @@
 <template>
   <div id="container">
-    <form>
+    <form @click.prevent="login">
         <p class="logo"><img src="https://i.postimg.cc/MKr8bZpZ/Free-Sample-By-Wix.jpg" alt="" class="logo"></p>
-        <input type="text" placeholder="Email" required="">
-        <input type="password" placeholder="Password" required="">
-        <button class="login">Log In</button>
+        <input type="text" placeholder="Email" required="" v-model="payload.emailAdd">
+        <input type="password" placeholder="Password" required="" v-model="payload.userPW">
+        <button class="login" @click="login">Log In</button>
         <a href="#">Forgot Password ?</a>
         <hr>
-        <button class="create-account">Create New Account</button>
+        <a class="create-account" href="/signup">Create New Account</a>
     </form>
   </div>
 </template>
 
 <script>
+export default {
+  data() {
+  return {
+    payload: {
+      emailAdd: '',
+      userPW: ''
+    },
+  }
+},
+computed: {
+  message() {
+    return this.$store.state.message
+  }
+  
+  // user() {
+  //   return this.$store.state.user
+  // }
+},
+methods: {
+  login() {
+    console.log('Debug:', this.payload);
+    this.$store.dispatch('login', this.payload)
+  }
+}
+}
 </script>
 
 <style>
