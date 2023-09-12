@@ -1,5 +1,45 @@
 <template>
-    <div style="padding: 1rem;" class="header">
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between border-bottom">
+      <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+        <img class="bi me-2 logo" width="40" height="32" role="img" aria-label="Bootstrap" src="https://i.postimg.cc/MKr8bZpZ/Free-Sample-By-Wix.jpg">
+      </a>
+
+      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+        <li><router-link to="/" class="nav-link px-2 link-secondary"><img width="30" height="30" src="https://i.postimg.cc/RZfJdX2p/home.png" alt="home"></router-link></li>
+        <li><router-link to="/menu" class="nav-link px-2 link-dark"><img width="30" height="30" src="https://i.postimg.cc/qRrFqDHP/fast-food.png" alt="menu"></router-link></li>
+        <li><router-link to="/about" class="nav-link px-2 link-dark"><img width="30" height="30" src="https://i.postimg.cc/hG4gv0W3/guide-book.png" alt="about"></router-link></li>
+        <li><router-link to="/feedback" class="nav-link px-2 link-dark"><img width="30" height="30" src="https://i.postimg.cc/ZqNgTB0D/feedback.png" alt="feedback"></router-link></li>
+        <li><router-link to="/admin" class="nav-link px-2 link-dark"><img width="30" height="30" src="https://i.postimg.cc/k46xrK4B/admin-panel.png" alt="admin"></router-link></li>
+      </ul>
+
+      <div class="col-md-3 text-end">
+        <button type="button" class="btn btn-outline-primary me-2 butt1">
+            <router-link to="/login">Log In</router-link>
+        </button>
+        <button type="button" class="btn btn-primary butt2">
+            <router-link to="/signup">Sign Up</router-link>
+        </button>
+      </div>
+
+      <div class="text-end">
+          <a href="#" class="d-block link-dark text-decoration-none" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+          </a>
+
+          <!-- <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1" style="">
+            <li><a class="dropdown-item" href="#">New project...</a></li>
+            <li><a class="dropdown-item" href="#">Settings</a></li>
+            <li><a class="dropdown-item" href="#">Profile</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Sign out</a></li>
+          </ul> -->
+        </div>
+    </header>
+
+
+
+
+    <!-- <div style="padding: 1rem;" class="header">
           <div class="sub1">
             <img src="https://i.postimg.cc/MKr8bZpZ/Free-Sample-By-Wix.jpg" alt="" class="logo">
           </div>
@@ -31,7 +71,7 @@
             </button>
             
           </div>
-        </div>
+        </div> -->
 </template>
 
 <script>
@@ -41,7 +81,7 @@ export default {
 </script>
 
 <style scoped>
-.header{
+header{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -72,27 +112,17 @@ a{
     border-radius: 50%;
     /* margin-top: 9px; */
 }
-.sub1{
-    flex-grow: 2;
-    /* margin-left: 20px;
-    padding-right: 10vh; */
-}
-.sub2{
-    flex-grow: 4;
-    margin-top: 1.5vh;
-    /* padding-left: 30vh; */
-}
 .butt1,.butt2{
-    height: 35px;
-    width: 110px;
-    margin-top: 10px;
+    /* height: 35px; */
+    /* width: 110px; */
+    /* margin-top: 10px; */
     background-color: #ff69b4;
     color: white;
     /* border: 3px solid; */
     border-radius: 20px;
     font-size: 15px;
     font-weight: bold;
-    margin: .5rem;
+    /* margin: .5rem; */
 
 }
 .butt2{
@@ -120,33 +150,5 @@ li:hover{
 ul li a:active {
     background: rgb(199, 245, 199);
     color: #0f0;
-}
-
-@media screen and (max-width: 360px) {
-    body {
-      background-color:rgb(129, 17, 235); 
-    }
-    .container{
-        display: flex;
-        flex-direction: column;
-    }
-    .header{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        flex-wrap: wrap;
-        margin-top: 20px;
-    }
-    .sub2{
-        margin-right: 2.4rem;
-        padding: 1.2rem;
-    }
-
-}
-
-@media screen and (min-width: 361px){
-    .sub2{
-        margin-right: 2.4rem;
-    }
 }
 </style>

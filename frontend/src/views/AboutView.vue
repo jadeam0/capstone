@@ -57,63 +57,61 @@
   <div class="team">
     <div class="team-title">
       <p class="title">Our Team</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+      <p>We are a passionate and varied group of people that share a love of delicious food, 
+        a dedication to our neighbourhood, and a common goal of making handmade food 
+        accessible and empowering.</p>
     </div>
 
     <div class="team-container card-columns">
       <div class="card ">
         <img
-          src="images/zulu-fernando-UM4d6RsrkmM-unsplash.jpg"
+          src="https://i.postimg.cc/3xgcXTXR/linkedin-sales-solutions-p-At-A8xe-i-VM-unsplash.jpg"
           alt="team-image"
         />
         <div class="card-body">
-          <p><b>Person Name 1</b></p>
-          <p>Title</p>
+          <p><b>Alex Montgomery</b></p>
+          <p>CEO</p>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-            dapibus sodales quam in consectetur.
+            Culinary innovation and community empowerment advocate
           </p>
         </div>
       </div>
       <div class="card ">
         <img
-          src="images/zulu-fernando-UM4d6RsrkmM-unsplash.jpg"
+          src="https://i.postimg.cc/Qdpp4NY2/jonathan-borba-n1-B6ft-PB5-Eg-unsplash.jpg"
           alt="team-image"
         />
         <div class="card-body">
-          <p><b>Person Name 2</b></p>
-          <p>Title</p>
+          <p><b>Mia Johnson</b></p>
+          <p>Co-Founder</p>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-            dapibus sodales quam in consectetur.
+            Champion of community-driven culinary excellence
           </p>
         </div>
       </div>
       <div class="card ">
         <img
-          src="images/zulu-fernando-UM4d6RsrkmM-unsplash.jpg"
+          src="https://i.postimg.cc/DfRnv17K/anthony-tran-3-Xkms-g-Mv-Zg-unsplash.jpg"
           alt="team-image"
         />
         <div class="card-body">
-          <p><b>Person Name 3</b></p>
-          <p>Title</p>
+          <p><b>Sarah Chen</b></p>
+          <p>Web Developer</p>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-            dapibus sodales quam in consectetur.
+            Crafting user-friendly, delightful online experiences
           </p>
         </div>
       </div>
       <div class="card ">
         <img
-          src="images/zulu-fernando-UM4d6RsrkmM-unsplash.jpg"
+          src="https://i.postimg.cc/NMffXtnq/albert-dera-ILip77-Sbm-OE-unsplash.jpg"
           alt="team-image"
         />
         <div class="card-body">
-          <p><b>Person Name 4</b></p>
-          <p>Title</p>
+          <p><b>James Rodriguez</b></p>
+          <p>Software Developer</p>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-            dapibus sodales quam in consectetur.
+            Crafting innovative, efficient digital solutions
           </p>
         </div>
       </div>
@@ -140,6 +138,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 0 20%;
 }
 
 .title {
@@ -169,6 +168,10 @@
 
 .team{
   padding: 2rem auto;
+}
+
+.card img {
+  /* height: 200vh; */
 }
 
 @media screen and (max-width: 360px) {
