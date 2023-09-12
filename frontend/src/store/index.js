@@ -127,11 +127,11 @@ export default createStore({
       try {
         const res = await axios.post(`${jdAPI}user/register`, payload);
         console.log('Response: ', res);
-        alert('USER SUCCESSFULLY CREATED')
-        const {result, msg, err} = await res.data
-        if(result) {
-          context.commit('setUser', result);
-          context.commit('user added', msg);
+        const {msg, err} = await res.data
+        if(msg) {
+          // context.commit('setUser', result);
+          context.commit('setMessage', msg);
+          alert('USER SUCCESSFULLY CREATED')
         } else {
           alert('user not added', err)
         }
@@ -146,13 +146,13 @@ export default createStore({
         const response = await axios.post(`${jdAPI}user/login`, payload);
         console.log('Response', response);
         alert('LOGIN SUCCESSFUL')
-        const {result, jwToken, msg, err} = await response.data
+        const {result, token , msg, err} = await response.data
         if(result) {
           context.commit('setUser', result);
-          context.commit('theToken', jwToken);
-          localStorage.setItem('loginToken', jwToken);
+          context.commit('setToken', token );
+          localStorage.setItem('loginToken', token);
           localStorage.setItem('user', JSON.stringify(result));
-          // cookies.set('setCookie', jwToken)
+          // cookies.set('setCookie', token )
           context.commit('setMessage', msg);
           setTimeout(() =>  {
             router.push({name: 'product'})

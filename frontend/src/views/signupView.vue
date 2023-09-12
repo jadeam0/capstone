@@ -66,7 +66,6 @@ export default {
   },
   methods: {
     registerUser() {
-      console.log('Debug', this.payload);
       this.$store.dispatch('registerUser', this.payload)
     }
   }
