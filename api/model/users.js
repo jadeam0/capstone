@@ -8,7 +8,7 @@ const secretKey = process.env.SECRET_KEY;
 class Users {
   fetchUsers(req, res) {
     const query = `
-        SELECT userID, firstName, lastName, userAge, gender, userDOB, emailAdd, userPW, userProfile
+        SELECT userID, firstName, lastName, userAge, gender, emailAdd, userPW, userProfile
         FROM users;
         `
     db.query(query, (err, results) => {
@@ -24,7 +24,7 @@ class Users {
 
   fetchUser(req, res) {
     const query = `
-        SELECT userID, firstName, lastName, userAge, gender, userDOB, emailAdd, userPW, userProfile 
+        SELECT userID, firstName, lastName, userAge, gender, emailAdd, userPW, userProfile 
         FROM users
         WHERE userID = ${req.params.id};
         `;
