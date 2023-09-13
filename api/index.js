@@ -40,7 +40,7 @@ app.use(
 );
 
 app.get("^/$|/Capstone", (req, res) => {
-  res.sendfile(path.resolve(__dirname, "./static/html/index.html"));
+  res.sendFile(path.resolve(__dirname, "./static/html/index.html"));
 });
 
 app.use("/user", userRoutes);
