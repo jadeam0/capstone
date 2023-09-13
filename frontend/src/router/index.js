@@ -4,41 +4,44 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    component: () => import(/* webpackChunkName: "about" */ '../views/HomeView.vue')
+    component: () => import('../views/HomeView.vue')
   },
   {
     path: '/about',
     name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    component: () => import('../views/AboutView.vue')
   },
   {
     path: '/admin',
     name: 'admin',
-    component: () => import(/* webpackChunkName: "about" */ '../views/adminView.vue')
+    component: () => import('../views/adminView.vue')
   },
   {
     path: '/menu',
     name: 'menu',
-    component: () => import(/* webpackChunkName: "about" */ '../views/menuView.vue')
+    component: () => import('../views/menuView.vue')
   },
   {
     path: '/login',
     name: 'login',
-    component: () => import(/* webpackChunkName: "about" */ '../views/loginView.vue')
+    component: () => import('../views/loginView.vue')
   },
   {
     path: '/signup',
     name: 'signup',
-    component: () => import(/* webpackChunkName: "about" */ '../views/signupView.vue')
+    component: () => import('../views/signupView.vue')
   },
   {
     path: '/feedback',
     name: 'feedback',
-    component: () => import(/* webpackChunkName: "about" */ '../views/feedbackView.vue')
+    component: () => import('../views/feedbackView.vue')
   },
+  {
+    path: '/cart',
+    name: 'cart',
+    component: () => import('../views/cartView.vue')
+  },
+
 ]
 
 

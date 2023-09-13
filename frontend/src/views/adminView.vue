@@ -173,7 +173,6 @@
                                 <button
                                   type="submit"
                                   class="btn btn-outline-dark"
-                                  @click="updateProduct(product.prodID)"
                                 >
                                   Save
                                 </button>
@@ -484,11 +483,6 @@ export default {
 </script>
 
 <style scoped>
-#admin {
-  width: 100%;
-  height: 100vh;
-}
-
 .modal {
   color: black;
 }

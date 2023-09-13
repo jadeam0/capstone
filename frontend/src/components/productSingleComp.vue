@@ -1,16 +1,52 @@
 <template>
-    <div v-if="products">
-
-    </div>
-    <div v-else><SpinnerComponent/></div>
+        <div class="col">
+            <div class="card"  v-for="product of products" :key="product.prodID">
+                <img :src="product.prodUrl"  class="card-img-top" alt="product.prodID">
+                <div class="card-body">
+                    <h5 class="card-title">{{ product.prodName }}</h5>
+                    <p class="card-text">{{ product.prodtDesc }}</p>
+                    <p class="card-text">R{{ product.prodPrice }}</p>
+                    <button type="button" class="btn btn-sm btn-outline-secondary" @click="addOrder(product)">Add to cart</button>
+                </div>
+            </div>
+        </div>
 </template>
 
 <script>
-import SpinnerComponent from '../components/spinnerComp.vue'
+import {useStore} from 'vuex'
+import {computed} from '@vue/runtime-core'
 export default {
-    components: {
-        SpinnerComponent
+    computed: {
+        products() {
+            return this.$store.state.products
+        }
+    },
+
+//     setup() {
+//     const store = useStore();
+//     const product = computed(() => store.state.product)
+//     return {
+//       product
+//     }
+//   },
+
+    mounted() {
+        this.$store.dispatch('getProducts', this.$route.params.id)
+    },
+
+    methods: {
+    async addOrder(product) {
+      const userID = localStorage.getItem('user', );
+      console.log(userID, product.prodID);
+      this.$store.dispatch('addOrder', {
+        userID: userID,
+        payload: {
+          userID: userID,
+          productID: product.prodID
+        }
+      })
     }
+  }
 }
 </script>
 

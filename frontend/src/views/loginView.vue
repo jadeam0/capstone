@@ -1,18 +1,34 @@
 <template>
   <div id="container">
-    <form @click.prevent="login">
-        <p class="logo"><img src="https://i.postimg.cc/MKr8bZpZ/Free-Sample-By-Wix.jpg" alt="" class="logo"></p>
-        <input type="text" placeholder="Email" required="" v-model="payload.emailAdd">
-        <input type="password" placeholder="Password" required="" v-model="payload.userPW">
-        <button class="login" @click="login">Log In</button>
-        <a href="#">Forgot Password ?</a>
-        <hr>
-        <a class="create-account" href="/signup">Create New Account</a>
+    <form @submit.prevent="login">
+      <p class="logo">
+        <img
+          src="https://i.postimg.cc/MKr8bZpZ/Free-Sample-By-Wix.jpg"
+          alt=""
+          class="logo"
+        />
+      </p>
+      <input
+        type="text"
+        placeholder="Email"
+        required=""
+        v-model="emailAdd"
+      />
+      <input
+        type="password"
+        placeholder="Password"
+        required=""
+        v-model="userPW"
+      />
+      <button class="login" type="submit">Log In</button>
+      <a href="#">Forgot Password ?</a>
+      <hr />
+      <a class="create-account" href="/signup">Create New Account</a>
 
-        <div class="form-outline mb-4">
-            <p class="text-white">{{ user?.firstName }} {{ user?.lastName }}</p>
-            <p class="text-white">{{ message }}</p>
-        </div>
+      <div class="form-outline mb-4">
+        <p class="text-white">{{ user?.firstName }} {{ user?.lastName }}</p>
+        <p class="text-white">{{ message }}</p>
+      </div>
     </form>
   </div>
 </template>
@@ -20,34 +36,35 @@
 <script>
 export default {
   data() {
-  return {
-    payload: {
-      emailAdd: '',
-      userPW: ''
-    },
-  }
-},
-computed: {
-  message() {
-    return this.$store.state.message
+    return {
+      emailAdd: "",
+      userPW: "",
+    };
   },
-  
-  user() {
-    return this.$store.state.user
-  }
-},
-methods: {
-  login() {
-    console.log('Debug:', this.payload);
-    this.$store.dispatch('login', this.payload)
-    // this.$router.push('/profile')
-  }
-},
+  computed: {
+    message() {
+      return this.$store.state.message;
+    },
 
-mounted() {
-  console.log(localStorage.getItem('setToken'))
-},
-}
+    user() {
+      return this.$store.state.user;
+    },
+  },
+  methods: {
+    login() {
+    //   console.log("Debug:", this.emailAdd, this.userPW);
+      this.$store.dispatch("login", {
+        emailAdd: this.emailAdd,
+        userPW: this.userPW
+      });
+      this.$router.push('/profile')
+    },
+  },
+
+  mounted() {
+    console.log(localStorage.getItem("setToken"));
+  },
+};
 </script>
 
 <style>
@@ -58,7 +75,6 @@ mounted() {
   /* color: #1877f2; */
   font-weight: 700;
   height: 6rem;
-  
 }
 
 #container {

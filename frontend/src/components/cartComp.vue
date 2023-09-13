@@ -9,12 +9,12 @@
         <h1 class="modal-title fs-5 text-dark" id="cart">CART</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body text-dark" v-for="products in getOrders" :key="products.orderID">
+      <div class="modal-body text-dark" v-for="product in getOrders" :key="product.orderID">
         <img src="products.prodUrl">  
-        <h4>{{products.prodName}}</h4> 
-        <p>{{products.prodDesc}}</p>
-        <p>{{categories.catName}}</p>
-        <p>R{{productss.prodPrice}}</p>
+        <h4>{{product.prodName}}</h4> 
+        <p>{{product.prodDesc}}</p>
+        <!-- <p>{{categories.catName}}</p> -->
+        <p>R{{product.prodPrice}}</p>
         <!-- <p>{{product.quantity}}</p>      -->
       </div>
       <div class="modal-footer">
@@ -33,7 +33,9 @@ export default {
         getOrders() {
             console.log(this.$store.state.orders)
             return this.$store.state.orders
-        }
+
+            // this.$router.push('/payment')
+        },
     },
 
     mounted() {

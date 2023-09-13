@@ -143,6 +143,7 @@ export default createStore({
     //-------Login--------
     async login(context, payload) {
       try {
+        const {emailAdd, userPW} = payload;
         const response = await axios.post(`${jdAPI}user/login`, payload);
         console.log('Response', response);
         alert('LOGIN SUCCESSFUL')
@@ -154,9 +155,9 @@ export default createStore({
           localStorage.setItem('user', JSON.stringify(result));
           // cookies.set('setCookie', token )
           context.commit('setMessage', msg);
-          setTimeout(() =>  {
-            router.push({name: 'product'})
-          }), 8000
+          // setTimeout(() =>  {
+          //   router.push({name: 'product'})
+          // }), 8000
         } else {
           alert('setMessage', err);
         }

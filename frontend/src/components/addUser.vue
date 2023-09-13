@@ -30,6 +30,9 @@
                 <input type="password" v-model="payload.userPW" placeholder="Password" class="form-control"/>
             </div>
             <div class="form-outline mb-4">
+                <input type="password" v-model="payload.phone" placeholder="Password" class="form-control"/>
+            </div>
+            <div class="form-outline mb-4">
                 <input type="text" v-model="payload.userProfile" class="form-control"/>
             </div>
             
@@ -56,6 +59,7 @@ export default {
                 gender:'',
                 emailAdd:'',
                 userPW:'',
+                phone:'',
                 userProfile:''
             }
         }
