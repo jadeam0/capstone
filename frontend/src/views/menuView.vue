@@ -1,10 +1,10 @@
 <template>
-<!-- <div v-if="products"> -->
+<div v-if="products">
     <div class="row row-cols-1 row-cols-md-4 p-4 m-3">
         <SingleProduct/>
     </div>
-<!-- </div> -->
-<!-- <div v-else><SpinnerComponent/></div> -->
+</div>
+<div v-else><SpinnerComponent/></div>
 </template>
 
 <script>

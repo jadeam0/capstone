@@ -1,4 +1,6 @@
 <template>
+<div v-if="products">
+
   <section class="landing">
     <div
       id="carouselExampleIndicators"
@@ -205,10 +207,21 @@
       </div>
     </div>
   </section>
+
+  </div>
+<div v-else><SpinnerComponent/></div>
 </template>
 
 <script>
-export default {};
+import SingleProduct from '../components/productSingleComp.vue'
+import SpinnerComponent from '../components/spinnerComp.vue'
+
+export default {
+  components: {
+        SingleProduct,
+        SpinnerComponent
+    }
+};
 </script>
 
 <style scoped>

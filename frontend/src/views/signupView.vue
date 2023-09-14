@@ -1,4 +1,6 @@
 <template>
+<div v-if="products">
+
     <div id="container">
     <form class="form"  @submit.prevent="registerUser">
     <p class="title"><img src="https://i.postimg.cc/MKr8bZpZ/Free-Sample-By-Wix.jpg" alt="" class="logo"></p>
@@ -41,9 +43,14 @@
     <p class="signin">Already have an account ? <a href="/login">Signin</a> </p>
 </form>
 </div>
+</div>
+<div v-else><SpinnerComponent/></div>
 </template>
 
 <script>
+import SingleProduct from '../components/productSingleComp.vue'
+import SpinnerComponent from '../components/spinnerComp.vue'
+
 export default {
   Name: 'SignIn',
   data() {
@@ -59,6 +66,10 @@ export default {
       }
     }
   },
+  components: {
+        SingleProduct,
+        SpinnerComponent
+    },
   computed: {
     message() {
       return this.$store.state.message
@@ -67,7 +78,10 @@ export default {
   methods: {
     registerUser() {
       this.$store.dispatch('registerUser', this.payload)
+      this.$router.push('/profile')
     }
+    
+    
   }
 }
 </script>

@@ -1,4 +1,6 @@
 <template>
+<div v-if="products">
+
     <div id="container" >
     <div class="card">
   <span class="title">Give Feedback</span>
@@ -19,10 +21,22 @@
   </form>
 </div>
 </div>
+</div>
+<div v-else><SpinnerComponent/></div>
 
 </template>
 
-<script></script>
+<script>
+import SingleProduct from '../components/productSingleComp.vue'
+import SpinnerComponent from '../components/spinnerComp.vue'
+
+export default {
+  components: {
+        SingleProduct,
+        SpinnerComponent
+    }
+}
+</script>
 
 <style>
 #container {

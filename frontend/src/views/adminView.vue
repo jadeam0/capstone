@@ -419,7 +419,7 @@
                     <div >{{ category.catName }}</div>
                   </td>
                   <td>
-                    <button type="submit" @click="deleteCategory(category.catID)" class="btn butt2">
+                    <button type="btn" @click.prevent="deleteCategory(category.catID)" class="btn butt2">
                       Delete
                     </button>
                   </td>

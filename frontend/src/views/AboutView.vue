@@ -1,4 +1,6 @@
 <template>
+<div v-if="products">
+
   <div class="about">
     <h1>About Us</h1>
   </div>
@@ -117,7 +119,21 @@
       </div>
     </div>
   </div>
+  </div>
+<div v-else><SpinnerComponent/></div>
 </template>
+
+<script>
+import SingleProduct from '../components/productSingleComp.vue'
+import SpinnerComponent from '../components/spinnerComp.vue'
+
+export default {
+  components: {
+        SingleProduct,
+        SpinnerComponent
+    }
+}
+</script>
 
 <style scoped>
 .about {
@@ -168,10 +184,6 @@
 
 .team{
   padding: 2rem auto;
-}
-
-.card img {
-  /* height: 200vh; */
 }
 
 @media screen and (max-width: 360px) {

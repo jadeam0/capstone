@@ -18,7 +18,7 @@
       </div>
       <div class="modal-footer">
        <button type="button" class="btn butt1" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn butt2" @click=" addCategory">Add User</button>
+        <button type="submit" class="btn butt2" @click.prevent="addCategory">Add Category</button>
       </div>
     </div>
   </div>
@@ -43,8 +43,8 @@ export default {
     },
 
     methods: {
-        registerUser() {
-            // console.log('Debug', this.payload);
+        addCategory() {
+            console.log('Debug', this.payload);
             this.$store.dispatch('addCategory', this.payload)
         }
     }
