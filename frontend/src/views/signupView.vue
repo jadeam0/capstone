@@ -1,5 +1,5 @@
 <template>
-<div v-if="products">
+<!-- <div v-if="products"> -->
 
     <div id="container">
     <form class="form"  @submit.prevent="registerUser">
@@ -43,8 +43,8 @@
     <p class="signin">Already have an account ? <a href="/login">Signin</a> </p>
 </form>
 </div>
-</div>
-<div v-else><SpinnerComponent/></div>
+<!-- </div>
+<div v-else><SpinnerComponent/></div> -->
 </template>
 
 <script>

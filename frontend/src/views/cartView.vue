@@ -1,9 +1,9 @@
 <template>
-<div v-if="products">
+<!-- <div v-if="products"> -->
 
     <Cart/>
-</div>
-<div v-else><SpinnerComponent/></div>
+<!-- </div>
+<div v-else><SpinnerComponent/></div> -->
 </template>
 
 <script>

@@ -1,5 +1,5 @@
 <template>
-<div v-if="products">
+<!-- <div v-if="products"> -->
 
     <div id="container" >
     <div class="card">
@@ -21,8 +21,8 @@
   </form>
 </div>
 </div>
-</div>
-<div v-else><SpinnerComponent/></div>
+<!-- </div>
+<div v-else><SpinnerComponent/></div> -->
 
 </template>
 

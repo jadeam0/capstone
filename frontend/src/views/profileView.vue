@@ -1,5 +1,5 @@
 <template>
-<div v-if="products">
+<!-- <div v-if="products"> -->
 
     <div class="background">
         <h2>Profile</h2>
@@ -10,8 +10,8 @@
         <h4>{{ $store.state.user?.userRole }}</h4>
       </div>
     </div>
-    </div>
-<div v-else><SpinnerComponent/></div>
+    <!-- </div>
+<div v-else><SpinnerComponent/></div> -->
 </template>
 
 <script>

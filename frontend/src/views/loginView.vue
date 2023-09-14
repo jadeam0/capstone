@@ -1,5 +1,5 @@
 <template>
-<div v-if="products">
+<!-- <div v-if="products"> -->
 
   <div id="container">
     <form @submit.prevent="login">
@@ -33,8 +33,8 @@
       </div>
     </form>
   </div>
-  </div>
-<div v-else><SpinnerComponent/></div>
+  <!-- </div>
+<div v-else><SpinnerComponent/></div> -->
 </template>
 
 <script>

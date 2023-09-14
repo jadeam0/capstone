@@ -1,5 +1,5 @@
 <template>
-<div v-if="products">
+<!-- <div v-if="products"> -->
 
   <section class="landing">
     <div
@@ -208,8 +208,8 @@
     </div>
   </section>
 
-  </div>
-<div v-else><SpinnerComponent/></div>
+  <!-- </div>
+<div v-else><SpinnerComponent/></div> -->
 </template>
 
 <script>
