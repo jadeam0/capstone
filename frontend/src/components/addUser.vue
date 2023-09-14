@@ -1,5 +1,5 @@
 <template>
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addUsers" data-bs-whatever="@addUser">Add User</button>
+    <button type="button" class="btn butt2" data-bs-toggle="modal" data-bs-target="#addUsers" data-bs-whatever="@addUser">Add User</button>
 
     <!--Modal-->
 <div class="modal fade" id="addUsers" aria-hidden="true" aria-labelledby="addUsers" tabindex="-1">
@@ -39,8 +39,8 @@
         </form>
       </div>
       <div class="modal-footer">
-       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" @click="registerUser">Add User</button>
+       <button type="button" class="btn butt2" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn butt1" @click="registerUser">Add User</button>
       </div>
     </div>
   </div>
@@ -81,5 +81,23 @@ export default {
 </script>
 
 <style>
+.butt1,.butt2{
+    background-color: #ff69b4;
+    color: white;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: bold;
+}
+.butt2{
+    background-color:#ffa500;
+    color: #fff; 
+    font-weight: bold;
+}
+.butt1:hover{
+  background-color: #efa2c8
 
+}
+.butt2:hover{
+  background-color: #f1ba54;
+}
 </style>

@@ -32,19 +32,10 @@
           </div>
         </div>
       </nav>
-      <div id="search">
-        <input
-          type="text"
-          class="form-control w-50 mx-auto m-5 shadow-sm"
-          placeholder="Search..."
-          id="searchinput"
-          @keyup="searchProduct"
-        />
-      </div>
 
       <!-- Products Table -->
       <div class="products">
-        <h4 class="text-center">Products</h4>
+        <h4 class="text-center prod">Products</h4>
         <div class="add">
           <AddProduct />
         </div>
@@ -52,7 +43,7 @@
         <div class="container-fluid">
           <div id="products-table">
             <table
-              class="table w-75 m-auto shadow-lg bg-danger text-light text-center rounded-3"
+              class="table w-75 m-auto shadow-lg  text-dark text-center rounded-3"
             >
               <thead>
                 <tr>
@@ -84,7 +75,7 @@
                     <!-- Button trigger modal -->
                     <button
                       type="button"
-                      class="btn btn-primary"
+                      class="btn butt1"
                       data-bs-toggle="modal"
                       :data-bs-target="'#editProducts' + product.prodID"
                     >
@@ -165,14 +156,14 @@
                               <div class="modal-footer">
                                 <button
                                   type="button"
-                                  class="btn btn-outline-dark"
+                                  class="btn butt2"
                                   data-bs-dismiss="modal"
                                 >
                                   Close
                                 </button>
                                 <button
                                   type="submit"
-                                  class="btn btn-outline-dark"
+                                  class="btn butt1"
                                 >
                                   Save
                                 </button>
@@ -187,7 +178,7 @@
                     <button
                       type="submit"
                       @click="deleteProduct(product.prodID)"
-                      class="btn btn-outline-dark"
+                      class="btn butt2"
                     >
                       Delete
                     </button>
@@ -209,7 +200,7 @@
         <div class="container-fluid table-responsive">
           <div id="products-table">
             <table
-              class="table w-75 m-auto shadow-lg bg-danger text-light text-center rounded-3 tafel"
+              class="table w-75 m-auto shadow-lg text-dark text-center rounded-3 tafel"
             >
               <thead>
                 <tr>
@@ -261,7 +252,7 @@
                     <!-- Button trigger modal -->
                     <button
                       type="button"
-                      class="btn btn-primary"
+                      class="btn butt1"
                       data-bs-toggle="modal"
                       :data-bs-target="'#editusers' + user.userID"
                     >
@@ -367,14 +358,14 @@
                           <div class="modal-footer">
                             <button
                               type="button"
-                              class="btn btn-outline-dark"
+                              class="btn butt2"
                               data-bs-dismiss="modal"
                             >
                               Close
                             </button>
                             <button
                               type="submit"
-                              class="btn btn-outline-dark"
+                              class="btn butt1"
                               @click="updateUser(user.userID)"
                             >
                               Save
@@ -388,7 +379,7 @@
                     <button
                       type="submit"
                       @click="deleteUser(user.userID)"
-                      class="btn btn-outline-dark"
+                      class="btn butt2"
                     >
                       Delete
                     </button>
@@ -399,27 +390,63 @@
           </div>
         </div>
       </div>
+
       <!-- suppliers -->
-      <div id="suppliers"></div>
+      <div id="categories">
+        <h4 class="text-center">Categories</h4>
+        <div class="add">
+          <AddCategory/>
+        </div>
+
+        <div class="container-fluid table-responsive">
+          <div id="products-table">
+            <table
+              class="table w-75 m-auto shadow-lg text-dark text-center rounded-3 tafel"
+            >
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Category Name</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody v-if="categories">
+                <tr v-for="category in categories" :key="category.catID" :category="category">
+                  <td>
+                    <div >{{ category.catID }}</div>
+                  </td>
+                  <td>
+                    <div >{{ category.catName }}</div>
+                  </td>
+                  <td>
+                    <button type="submit" @click="deleteCategory(category.catID)" class="btn butt2">
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
     <div v-else><SpinnerComponent /></div>
-    <!-- <footerComp /> -->
   </div>
 </template>
 
 <script>
 import AddProduct from "../components/addProduct.vue";
 import AddUser from "@/components/addUser.vue";
+import AddCategory from '@/components/addCategories.vue'
 import { useStore } from "vuex";
 import { computed } from "@vue/runtime-core";
 import SpinnerComponent from "@/components/spinnerComp.vue";
-import footerComp from "@/components/footerComp.vue";
 export default {
   components: {
     SpinnerComponent,
     AddProduct,
     AddUser,
-    footerComp,
+    AddCategory
   },
   data() {
     return {
@@ -435,11 +462,14 @@ export default {
     const store = useStore();
     store.dispatch("getProducts");
     store.dispatch("getUsers");
+    store.dispatch('getCategories')
     const products = computed(() => store.state.products);
     const users = computed(() => store.state.users);
+    const categories = computed(() => store.state.categories)
     return {
       products,
       users,
+      categories
     };
   },
   methods: {
@@ -448,6 +478,9 @@ export default {
     },
     deleteUser(id) {
       this.$store.dispatch("deleteUser", id);
+    },
+    deleteCategory(id) {
+      this.$store.dispatch('deleteCategory', id);
     },
     updateProduct(product) {
       this.$store.dispatch("updateProduct", {
@@ -510,6 +543,32 @@ td img {
 }
 .data-prod {
   word-break: break-all
-  ;
+}
+.butt1,.butt2{
+    background-color: #ff69b4;
+    color: white;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: bold;
+}
+.butt2{
+    background-color:#ffa500;
+    color: #fff; 
+    font-weight: bold;
+}
+.butt1:hover{
+  background-color: #efa2c8
+
+}
+.butt2:hover{
+  background-color: #f1ba54;
+}
+h4{
+  font-size: 40px;
+  margin-top: 6rem;
+  margin-bottom: 2rem;
+}
+.prod h4 {
+  margin-top: 0;
 }
 </style>

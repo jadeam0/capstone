@@ -179,14 +179,14 @@ a{
 .butt1:hover{
     /* background-color: ; */
     color: #fff; 
-    font-size: 20px;
-    text-decoration: underline solid 1px#0f0;
+    font-size: 17px;
+    /* text-decoration: underline solid 1px#0f0; */
 }
 .butt2:hover{
     /* opacity: 0.8; */
     color: #fff; 
-    font-size: 20px;
-    text-decoration: underline solid 1px#0f0;
+    font-size: 17px;
+    /* text-decoration: underline solid 1px#0f0; */
 }
 li:hover{
     opacity: 0.9;

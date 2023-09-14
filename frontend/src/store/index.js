@@ -16,6 +16,8 @@ export default createStore({
     userAuth: null,
     product: null,
     products: null,
+    category: null,
+    categories: null,
     orders: [],
     payment: [],
     showSpinner: null,
@@ -39,6 +41,12 @@ export default createStore({
     },
     setProducts(state, values) {
       state.products = values
+    },
+    setCategory(state, value) {
+      state.category = value
+    },
+    setCategories(state, value) {
+      state.categories = value
     },
     setOrders(state, value) {
       state.orders = value
@@ -307,7 +315,49 @@ export default createStore({
     }
    },
 
-   //------Supplier-------
+   //------Categories-------
+   async getCategories(context) {
+    try{
+      const res = await axios.get(`${jdAPI}category/Categories`);
+      let {results,err} = await res.data;
+      if(results) {
+        context.commit('setCategories', results)
+      } else {
+        alert('could show categories', err)
+      }
+    } catch(err) {
+      console.error(err)
+    }
+   },
+
+   async addCategory(context, payload) {
+    try {
+      const res = await axios.post(`${jdAPI}category/addCategory`, payload);
+      console.log('Response: ', res);
+      alert('CATEGORY ADDED')
+      let {result, msg, err} = await res.data;
+      if(result) {
+        context.commit('setCategory', result)
+        context.commit('setMessage', msg)
+      } else {
+        alert('COULD NOT ADD CATEGORY', err)
+      }
+    } catch(err) {
+      console.error(err)
+    }
+   },
+
+   async deleteCategory({commit, dispatch}, id) {
+    try {
+      await axios.delete(`${jdAPI}category/category/${id}`);
+      commit('setMessage', 'Category Deleted');
+      alert('CATEGORY DELETED')
+      dispatch('getCategories');
+    } catch(err) {
+      alert('FAILED TO DELETE CATEGORY', err)
+      console.error(err)
+    }
+   },
 
   },
 

@@ -2,7 +2,7 @@
   <div>
     <button
       type="button"
-      class="btn btn-primary"
+      class="btn butt2"
       data-bs-toggle="modal"
       data-bs-target="#exampleModalToggle2"
     >
@@ -85,12 +85,12 @@
           <div class="modal-footer">
             <button
               type="button"
-              class="btn btn-secondary"
+              class="btn butt1"
               data-bs-dismiss="modal"
             >
               Close
             </button>
-            <button type="button" class="btn btn-primary" @click="addProduct">
+            <button type="button" class="btn butt2" @click="addProduct">
               Add Product
             </button>
           </div>
@@ -130,3 +130,25 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+.butt1,.butt2{
+    background-color: #ff69b4;
+    color: white;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: bold;
+}
+.butt2{
+    background-color:#ffa500;
+    color: #fff; 
+    font-weight: bold;
+}
+.butt1:hover{
+  background-color: #efa2c8
+
+}
+.butt2:hover{
+  background-color: #f1ba54;
+}
+</style>
