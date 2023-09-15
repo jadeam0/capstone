@@ -60,7 +60,9 @@
             height="30"
             src="https://i.postimg.cc/k46xrK4B/admin-panel.png"
             alt="admin"
+            
         /></router-link>
+        <!-- v-if="this.$store.state.userAuth" -->
       </li>
     </ul>
 
@@ -96,7 +98,7 @@
     <div class="container-fluid">
       <form class="d-flex w-50">
         <input class="form-control me-2" v-model="searchByName" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn butt1" type="submit">Search</button>
+        <button class="btn butt1" type="search">Search</button>
         <button type="button" @click.prevent="sortByPrice" class="btn butt2">Sort</button>
 
         <!-- <select class="btn btn-light text-start text-dark" v-model="category">
@@ -123,6 +125,7 @@ export default {
       return {
         searchByName: '',
         category: '',
+        // active: false
       }
     },
 

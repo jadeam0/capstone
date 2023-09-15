@@ -4,9 +4,9 @@
     <div id="container" >
     <div class="card">
   <span class="title">Give Feedback</span>
-  <form class="form">
+  <form class="form" action="https://formspree.io/f/mleyljob" method="POST">
     <div class="group">
-    <input placeholder="" type="text" required="">
+    <input placeholder="" type="text" name="name" required="">
     <label for="name">Name</label>
     </div>
 <div class="group">

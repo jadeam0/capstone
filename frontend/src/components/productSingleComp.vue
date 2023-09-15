@@ -23,31 +23,15 @@ export default {
             return this.$store.state.products
         }
     },
-
-//     setup() {
-//     const store = useStore();
-//     const product = computed(() => store.state.product)
-//     return {
-//       product
-//     }
-//   },
-
     mounted() {
         this.$store.dispatch('getProducts', this.$route.params.id)
     },
 
     methods: {
-    async addOrder(product) {
-      const userID = localStorage.getItem('user', );
-      console.log(userID, product.prodID);
-      this.$store.dispatch('addOrder', {
-        userID: userID,
-        payload: {
-          userID: userID,
-          productID: product.prodID
-        }
-      })
-    }
+
+    addOrder(product) {
+      this.$store.dispatch('addOrder', product);
+    },
   }
 }
 </script>

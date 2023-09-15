@@ -71,6 +71,12 @@ export default createStore({
     },
     setIsLogIn(state, isLogIn) {
       state.isLogIn = isLogIn;
+    },
+    setCookie(state, value) {
+      state.value = value
+    },
+    deleteCategory(state, categoryId) {
+      state.categories = state.categories.filter((category) => category.catID !== categoryId);
     }
   },
   actions: {
@@ -112,7 +118,7 @@ export default createStore({
         if(results) {
           context.commit('setUser', results[0])
         } else {
-          alert('setMessage', err)
+          alert('user could not update', err)
         }
       } catch(err) {
         console.log(err);
@@ -151,27 +157,29 @@ export default createStore({
     //-------Login--------
     async login(context, payload) {
       try {
-        const {emailAdd, userPW} = payload;
+        const { emailAdd, userPW } = payload;
         const response = await axios.post(`${jdAPI}user/login`, payload);
-        console.log('Response', response);
-        alert('LOGIN SUCCESSFUL')
-        const {result, token , msg, err} = await response.data
-        if(result) {
-          context.commit('setUser', result);
-          context.commit('setToken', token );
-          localStorage.setItem('loginToken', token);
-          localStorage.setItem('user', JSON.stringify(result));
-          // cookies.set('setCookie', token )
+        console.log('FULL Response', response);
+        const { result, token, msg, err } = response.data;
+        if (result) {
+          context.commit('setUser', {result, msg});
+          cookies.set('LegitUser', {result, token, msg, err});
+          authentication.applyToken(token);
           context.commit('setMessage', msg);
-          // setTimeout(() =>  {
-          //   router.push({name: 'product'})
-          // }), 8000
+          alert('LOGIN SUCCESSFUL');
+          this.$router.push('/profile');
         } else {
-          alert('setMessage', err);
+          alert('LOGIN FAILED: ', err);
         }
-      } catch(err) {
-        console.log(err)
+      } catch (err) {
+        console.error(err);
       }
+    },
+    async logout(context) {
+      // context.commit("setToken", null);
+      context.commit("setUser");
+      location.reload()
+      cookies.remove("LegitUser");
     },
 
     //-------Product---------
@@ -264,21 +272,24 @@ export default createStore({
     }
    },
 
-   async addOrder(context, {payload}) {
+   async addOrder({ commit }, { payload }) {
     try {
-      console.log(payload)
-      let userID = localStorage.getItem('userID')
-      const {res, msg} = await axios.post(`${jdAPI}user/${id}/cart`, payload);
-      if(res) {
-        context.commit('setOrders', res.data)
+      console.log(payload);
+      let userID = localStorage.getItem('userID');
+  
+      const response = await axios.post(`${jdAPI}user/${userID}/addOrder`, payload);
+  
+      if (response.data.res) {
+        commit('setOrders', response.data.res.data);
       } else {
-      alert('setMessage', msg)
+        alert(response.data.msg);
       }
-    } catch(err) {
-      console.log(err)
+    } catch (error) {
+      // console.error(error);
+      console.error('AxiosError:', error);
+  console.log('Server Response:', error.response); 
     }
-   },
-
+  },
    async updateOrder(context, id) {
     try{
       const res = await axios.put(`${jdAPI}/user/${id}/cart/${id}`);
@@ -347,17 +358,64 @@ export default createStore({
     }
    },
 
-   async deleteCategory({commit, dispatch}, id) {
+  //  async deleteCategory(id) {
+  //   try {
+  //     await axios.delete(`${jdAPI}category/category/${id}`);
+  //     // Assuming a successful response means the category was deleted
+  //     this.$store.commit('setMessage', 'Category Deleted');
+  //     this.$store.dispatch('getCategories');
+  //     alert('CATEGORY DELETED');
+  //   } catch (err) {
+  //     console.error('FAILED TO DELETE CATEGORY', err);
+  //     let errorMessage = 'Failed to delete category';
+      
+  //     if (err.response) {
+  //       // If the server responded with an error message, use it
+  //       errorMessage = err.response.data.message || errorMessage;
+  //     }
+      
+  //     alert(errorMessage);
+  //   }
+  // }
+  
+
+  //  async deleteCategory(id) {
+  //   try {
+  //     console.log(`Deleting category with ID ${id}`);
+  //     const response = await axios.delete(`${jdAPI}category/category/${id}`);
+  //     console.log('Response:', response.data);
+  //     commit('setMessage', 'Category Deleted');
+  //     dispatch('getCategories');
+  //     alert('CATEGORY DELETED');
+  //   } catch (err) {
+  //     console.error('FAILED TO DELETE CATEGORY', err);
+  //     alert('FAILED TO DELETE CATEGORY: ' + err.message);
+  //   }
+  // }
+  
+
+   async deleteCategory(id) {
     try {
       await axios.delete(`${jdAPI}category/category/${id}`);
+      // console.log('Response:', response.data);
       commit('setMessage', 'Category Deleted');
-      alert('CATEGORY DELETED')
       dispatch('getCategories');
-    } catch(err) {
-      alert('FAILED TO DELETE CATEGORY', err)
-      console.error(err)
+      alert('CATEGORY DELETED');
+    } catch (err) {
+      // console.error('FAILED TO DELETE CATEGORY', err);
+      // alert('FAILED TO DELETE CATEGORY: ' + err.message);
+
+      console.error('FAILED TO DELETE CATEGORY', err);
+      let errorMessage = 'Failed to delete category';
+      
+      if (err.response) {
+        // If the server responded with an error message, use it
+        errorMessage = err.response.data.message || errorMessage;
+      }
+      
+      alert(errorMessage);
     }
-   },
+  }
 
   },
 

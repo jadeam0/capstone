@@ -1,38 +1,6 @@
 <template>
   <div id="adman">
     <div v-if="products" id="admin">
-      <!-- Side Bar -->
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-          <button
-            class="btn btn-primary"
-            type="button"
-            data-bs-toggle="offcanvas"
-            data-bs-target="#offcanvasRight"
-            aria-controls="offcanvasRight"
-          >
-            Toggle right offcanvas
-          </button>
-          <div
-            class="offcanvas offcanvas-start"
-            tabindex="-1"
-            id="offcanvasRight"
-            aria-labelledby="offcanvasRightLabel"
-          >
-            <div class="offcanvas-header">
-              <h5 id="offcanvasRightLabel">Offcanvas right</h5>
-              <button
-                type="button"
-                class="btn-close text-reset"
-                data-bs-dismiss="offcanvas"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div class="offcanvas-body">...</div>
-          </div>
-        </div>
-      </nav>
-
       <!-- Products Table -->
       <div class="products">
         <h4 class="text-center prod">Products</h4>
@@ -482,37 +450,25 @@ export default {
     deleteCategory(id) {
       this.$store.dispatch('deleteCategory', id);
     },
-    updateProduct(product) {
-      this.$store.dispatch("updateProduct", {
-        prodID: product.prodID,
-        prodName: product.prodName,
-        prodDesc: product.prodDesc,
-        catID: product.prodID,
-        prodPrice: product.prodPrice,
-        prodUrl: product.prodUrl,
-        quantity: product.quantity,
-      });
+    updateProduct(updatedProduct) {
+    this.$store.dispatch("updateProduct", updatedProduct);
+    // this.closeProductModal(updatedProduct.prodID);
     },
-    updateUser(user) {
-      this.$store.dispatch("updateUser", {
-        userID: user.userID,
-        firstName: user.firstName,
-        lastName: user.lastName,
-        userAge: user.userAge,
-        gender: user.gender,
-        userRole: user.userRole,
-        emailAdd: user.emailAdd,
-        userPW: user.userPW,
-        userProfile: user.userProfile,
-        phone: user.phone,
-      });
+    closeProductModal(productId) {
+    const modalId = `#editProducts${productId}`;
+    $(updatedProduct.prodID).modal('hide');
     },
-
-    // searchProduct() {
-    //   Implement your search logic here
-    // },
+    updateUser(updatedUser) {
+    this.$store.dispatch("updateUser", updatedUser);
+    // this.closeUserModal(updatedUser.userID);
+    },
+    closeUserModal(userId) {
+    const modalId = `#editusers${userId}`;
+    $(updatedUser.userID).modal('hide');
+  },
   },
 };
+
 </script>
 
 <style scoped>

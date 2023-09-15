@@ -243,7 +243,6 @@ export default {
   left: 29%;
   transform: translate(-49%, -50%);
   border-radius: 3%;
-  /* padding: 20px; Adjust as needed */
 }
 .carousel-caption h3 {
   font-size: 46px;

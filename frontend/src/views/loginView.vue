@@ -64,22 +64,22 @@ export default {
   },
   methods: {
     login() {
-    //   console.log("Debug:", this.emailAdd, this.userPW);
+      console.log("Debug:", this.emailAdd, this.userPW);
       this.$store.dispatch("login", {
         emailAdd: this.emailAdd,
         userPW: this.userPW
       });
-      this.$router.push('/profile')
+      // this.$router.push('/');
     },
   },
 
-  mounted() {
-    console.log(localStorage.getItem("setToken"));
-  },
+  // mounted() {
+  //   console.log(cookies.set('LegitUser'));
+  // },
 };
 </script>
 
-<style>
+<style scoped>
 .logo {
   margin-bottom: 1rem;
   font-size: 1.2rem;

@@ -1,30 +1,44 @@
 <template>
-<!-- <div v-if="products"> -->
-
-    <div class="background">
-        <h2>Profile</h2>
-        <img class="img-fluid" :src="$store.state.user?.userProfile">
-        <div class="profile">
-        <h4>Welcome, {{ $store.state.user?.firstName }} {{ $store.state.user?.lastName }}</h4>
-        <h4>{{ $store.state.user?.emailAdd }}</h4>
-        <h4>{{ $store.state.user?.userRole }}</h4>
-      </div>
+  <div class="background">
+    <h2>Profile</h2>
+    <img class="img-fluid" :src="userProfile">
+    <div class="profile">
+      <h4>Welcome, {{ fullName }}</h4>
+      <h4>{{ emailAdd }}</h4>
+      <h4>{{ userRole }}</h4>
+      <router-link to="/login" @click="logout()">Logout</router-link>
     </div>
-    <!-- </div>
-<div v-else><SpinnerComponent/></div> -->
+  </div>
 </template>
 
 <script>
-import SingleProduct from '../components/productSingleComp.vue'
-import SpinnerComponent from '../components/spinnerComp.vue'
-
+import router from '@/router';
 export default {
-components: {
-        SingleProduct,
-        SpinnerComponent
+  computed: {
+    userProfile() {
+      return this.$store.state.user?.userProfile || '';
+    },
+    fullName() {
+      const user = this.$store.state.user;
+      return user ? `${user.firstName} ${user.lastName}` : '';
+    },
+    emailAdd() {
+      return this.$store.state.user?.emailAdd || '';
+    },
+    userRole() {
+      return this.$store.state.user?.userRole || '';
+    },
+  },
+
+  mounted: {
+    logout() {
+      this.$store.dispatch("logout", id);
+      this.$router.push('/profile')
     }
-}
+  }
+};
 </script>
+
 <style scoped>
 img {
   width: 50vh;
