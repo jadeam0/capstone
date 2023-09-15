@@ -114,7 +114,7 @@ class Users {
     const query = `
      UPDATE users
      SET ?
-     WHERE userID = ?;
+     WHERE userID = ${req.params.id};
      `
     db.query(query, [req.body, req.params.id], (err) => {
       if (err) {
